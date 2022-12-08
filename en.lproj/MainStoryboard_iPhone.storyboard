@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="2">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="LoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" id="J77-SK-eeg">
+                                <rect key="frame" x="129" y="38" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" id="JwW-dk-8VI">
+                                <rect key="frame" x="129" y="79" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1aa-7U-tJu">
+                                <rect key="frame" x="84" y="48" width="37" height="11"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8IZ-d9-0GJ">
+                                <rect key="frame" x="47" y="84" width="74" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Vc-ty-BCd">
+                                <rect key="frame" x="71" y="122" width="50" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Port" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WTg-ce-oWg">
+                                <rect key="frame" x="80" y="173" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gtk-3g-BJV">
+                                <rect key="frame" x="84" y="218" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Cookies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f9V-3x-VVe">
+                                <rect key="frame" x="54" y="263" width="97" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accept Untrusted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="osu-1Z-WFu">
+                                <rect key="frame" x="13" y="302" width="135" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="VKd-Aw-XPh">
+                                <rect key="frame" x="159" y="213" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="elq-J8-fj7">
+                                <rect key="frame" x="159" y="258" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="WmP-5a-tyv">
+                                <rect key="frame" x="159" y="297" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hIl-5R-kz4">
+                                <rect key="frame" x="132" y="499" width="57" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yQb-QB-NjJ">
+                                <rect key="frame" x="110" y="353" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginPress:" destination="2" eventType="touchUpInside" id="4UI-rF-M8T"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="grg-sx-v4A">
+                                <rect key="frame" x="160" y="353" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelLoginPress:" destination="2" eventType="touchUpInside" id="chH-7h-CVe"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Server address, e.g. myserver.acme.com" textAlignment="natural" minimumFontSize="17" id="U2x-5k-P1N">
+                                <rect key="frame" x="129" y="122" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8443" textAlignment="natural" minimumFontSize="17" id="SfH-5w-xFI">
+                                <rect key="frame" x="129" y="170" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" id="XIr-6Y-zlD">
+                                <rect key="frame" x="110" y="391" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CaféX FCSDK Sample Application" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B9h-4f-Wgt">
+                                <rect key="frame" x="30" y="519" width="261" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="passwordField" destination="JwW-dk-8VI" id="75K-z9-xw9"/>
+                        <outlet property="portField" destination="SfH-5w-xFI" id="LVU-eL-bI4"/>
+                        <outlet property="secureSwitch" destination="VKd-Aw-XPh" id="eo5-zC-Sh4"/>
+                        <outlet property="serverField" destination="U2x-5k-P1N" id="Zet-f1-rKv"/>
+                        <outlet property="untrustedCertificatesSwitch" destination="WmP-5a-tyv" id="ZuU-35-rgM"/>
+                        <outlet property="useCookiesSwitch" destination="elq-J8-fj7" id="AUB-sf-cB2"/>
+                        <outlet property="userNameField" destination="J77-SK-eeg" id="qtj-Py-BjI"/>
+                        <outlet property="versionField" destination="hIl-5R-kz4" id="QzX-GG-X2f"/>
+                        <segue destination="Hda-fj-hhz" kind="modal" identifier="loginSegue" id="XjT-jO-MCo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="23" y="33"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="J57-gH-MLq">
+            <objects>
+                <viewController id="qHf-hi-hlt" customClass="AccountViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cBh-eP-sGs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Account" image="Exit-50.png" id="2nI-d2-ZNR">
+                        <inset key="imageInsets" minX="7" minY="8" maxX="3" maxY="5"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MKa-4S-338" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="524"/>
+        </scene>
+        <!--AEDs-->
+        <scene sceneID="wLX-ml-d8p">
+            <objects>
+                <viewController title="AEDs" id="zyg-aP-1UG" customClass="AEDViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dLV-Vq-4Nt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="AEDs" id="As3-FV-muJ" userLabel="AEDItem"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ofr-Un-mAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140" y="72"/>
+        </scene>
+        <!--Calls-->
+        <scene sceneID="U59-rO-77R">
+            <objects>
+                <viewController title="Calls" id="vCt-OS-GwL" customClass="DialPadViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SLl-LQ-dKE" userLabel="RootView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" id="ENE-LY-vFv" userLabel="Video view 1">
+                                <rect key="frame" x="10" y="120" width="300" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" id="cUa-cp-inc" userLabel="Video view 2">
+                                <rect key="frame" x="10" y="120" width="300" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" id="JR5-wU-x1B" userLabel="Video view 3">
+                                <rect key="frame" x="10" y="120" width="300" height="250"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" id="B2o-HN-zrZ" userLabel="Call List">
+                                <rect key="frame" x="10" y="11" width="303" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fjw-6i-S32" userLabel="First Call Button">
+                                        <rect key="frame" x="0.0" y="5" width="95" height="95"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="firstCallButtonPressed:" destination="vCt-OS-GwL" eventType="touchUpInside" id="zh3-0j-ahM"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gTB-Qb-au9" userLabel="First Call Button Label">
+                                        <rect key="frame" x="27" y="82" width="41" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7N5-yT-kA3" userLabel="Second Call Button">
+                                        <rect key="frame" x="103" y="5" width="95" height="95"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="secondCallButtonPressed:" destination="vCt-OS-GwL" eventType="touchUpInside" id="taT-Zt-XDL"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xmU-ct-D7a" userLabel="Second Call Button Label">
+                                        <rect key="frame" x="130" y="82" width="41" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dWp-cD-Dtm" userLabel="Third Call Button">
+                                        <rect key="frame" x="206" y="5" width="95" height="95"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="thirdCallButtonPressed:" destination="vCt-OS-GwL" eventType="touchUpInside" id="O6C-XZ-MvK"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rhj-n8-h1Y" userLabel="Third Call Button Label">
+                                        <rect key="frame" x="232" y="82" width="43" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" id="qcT-oQ-yDo">
+                                <rect key="frame" x="71" y="147" width="176" height="221"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dialer_input_bar.png" highlightedImage="dialer_input_bar.png" id="oRK-8I-htp">
+                                        <rect key="frame" x="0.0" y="0.0" width="176" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oei-6D-Va0" userLabel="PlusDialButton">
+                                        <rect key="frame" x="0.0" y="180" width="60" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_plus.png"/>
+                                        <connections>
+                                            <action selector="pressPlusKey:" destination="vCt-OS-GwL" eventType="touchUpInside" id="IZF-1O-zk8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oN6-yQ-ZGq" userLabel="HashDialButton">
+                                        <rect key="frame" x="116" y="139" width="60" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="keypad_hash.png"/>
+                                        <connections>
+                                            <action selector="pressHashKey:" destination="vCt-OS-GwL" eventType="touchUpInside" id="Y08-Bj-kmf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7Vk-3C-dIy" userLabel="0DialButton">
+                                        <rect key="frame" x="59" y="142" width="59" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_0.png"/>
+                                        <connections>
+                                            <action selector="press0Key:" destination="vCt-OS-GwL" eventType="touchUpInside" id="oU2-l6-1Op"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c81-xF-ZlQ" userLabel="StarDialButton">
+                                        <rect key="frame" x="0.0" y="142" width="60" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_star.png"/>
+                                        <connections>
+                                            <action selector="pressStarKey:" destination="vCt-OS-GwL" eventType="touchUpInside" id="PPq-0f-NhR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ofo-3S-Kp7" userLabel="8DialButton">
+                                        <rect key="frame" x="59" y="105" width="59" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_8.png"/>
+                                        <connections>
+                                            <action selector="press8Key:" destination="vCt-OS-GwL" eventType="touchUpInside" id="ibJ-uP-sLA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ref-tb-WyV" userLabel="7DialButton">
+                                        <rect key="frame" x="0.0" y="105" width="60" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_7.png"/>
+                                        <connections>
+                                            <action selector="press7Key:" destination="vCt-OS-GwL" eventType="touchUpInside" id="OKS-nc-ewA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8sY-xZ-xlq" userLabel="6DialButton">
+                                        <rect key="frame" x="116" y="69" width="60" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_6.png"/>
+                                        <connections>
+                                            <action selector="press6Key:" destination="vCt-OS-GwL" eventType="touchUpInside" id="vfr-FM-NJr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6bC-IJ-qTJ" userLabel="3DialButton">
+                                        <rect key="frame" x="116" y="33" width="60" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_3.png"/>
+                                        <connections>
+                                            <action selector="press3Key:" destination="vCt-OS-GwL" eventType="touchUpInside" id="ygA-BA-HrV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0b5-ol-i78" userLabel="2DialButton">
+                                        <rect key="frame" x="57" y="33" width="60" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_2.png"/>
+                                        <connections>
+                                            <action selector="press2Key:" destination="vCt-OS-GwL" eventType="touchUpInside" id="l3b-sL-dHd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="L1W-fq-Vm0" userLabel="5DialButton">
+                                        <rect key="frame" x="57" y="69" width="60" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_5.png"/>
+                                        <connections>
+                                            <action selector="press5Key:" destination="vCt-OS-GwL" eventType="touchUpInside" id="fFG-oa-RQy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Eww-AK-osz" userLabel="1DialButton">
+                                        <rect key="frame" x="0.0" y="33" width="60" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_1.png"/>
+                                        <connections>
+                                            <action selector="press1Key:" destination="vCt-OS-GwL" eventType="touchUpInside" id="Qda-dw-Wun"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="S6v-wo-SC6" userLabel="4DialButton">
+                                        <rect key="frame" x="0.0" y="69" width="60" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_4.png"/>
+                                        <connections>
+                                            <action selector="press4Key:" destination="vCt-OS-GwL" eventType="touchUpInside" id="bGg-vc-v86"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fyG-2a-9lH" userLabel="BackspaceDialButton">
+                                        <rect key="frame" x="116" y="180" width="60" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_delete.png"/>
+                                        <connections>
+                                            <action selector="pressDeleteKey:" destination="vCt-OS-GwL" eventType="touchUpInside" id="j49-PM-V9J"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WIR-6Z-NID" userLabel="CallButton">
+                                        <rect key="frame" x="59" y="180" width="60" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_call.png"/>
+                                        <connections>
+                                            <action selector="DialKeyPressed:" destination="vCt-OS-GwL" eventType="touchUpInside" id="lF5-pJ-Plq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ECe-wa-CNy" userLabel="9DialButton">
+                                        <rect key="frame" x="116" y="105" width="60" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="keypad_9.png"/>
+                                        <connections>
+                                            <action selector="press9Key:" destination="vCt-OS-GwL" eventType="touchUpInside" id="ZbQ-Eg-SZ9"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="14" id="Asy-Da-RYm">
+                                        <rect key="frame" x="0.0" y="4" width="176" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" id="mde-TG-xzJ" userLabel="Call Control View">
+                                <rect key="frame" x="75" y="375" width="173" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="box.png" id="CgR-ch-kFB">
+                                        <rect key="frame" x="-6" y="-4" width="179" height="45"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="soq-uE-mHP" userLabel="Mute Button">
+                                        <rect key="frame" x="66" y="-4" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="option_unmute.png"/>
+                                        <connections>
+                                            <action selector="pressMute:" destination="vCt-OS-GwL" eventType="touchUpInside" id="7b9-gh-DNL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NKo-3T-v5i" userLabel="End Call Button">
+                                        <rect key="frame" x="116" y="-8" width="49" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="endcall.png"/>
+                                        <connections>
+                                            <action selector="pressEndCall:" destination="vCt-OS-GwL" eventType="touchUpInside" id="BrV-co-YwT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zfl-8e-OPv" userLabel="Video Show Button">
+                                        <rect key="frame" x="8" y="-4" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="option_video_enable.png"/>
+                                        <connections>
+                                            <action selector="pressVideo:" destination="vCt-OS-GwL" eventType="touchUpInside" id="Nb3-jh-uDB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xTM-st-NNQ">
+                                <rect key="frame" x="14" y="439" width="80" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Settings" backgroundImage="btn_cancel.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingsButtonPressed:" destination="vCt-OS-GwL" eventType="touchUpInside" id="y5L-Y1-6mP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rvE-bH-6pY" userLabel="Dialpad Button">
+                                <rect key="frame" x="14" y="474" width="80" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Keypad" backgroundImage="btn_cancel.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="displayDialpad:" destination="vCt-OS-GwL" eventType="touchUpInside" id="MF5-4Y-PXQ"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" misplaced="YES" id="E4Q-3d-mCu" customClass="InCallQualityView">
+                                <rect key="frame" x="179" y="439" width="36" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="btn_cancel.png" id="yfq-ql-Cfb" userLabel="CallQualityBackground">
+                                        <rect key="frame" x="0.0" y="-5" width="36" height="72"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" misplaced="YES" id="JEi-Uc-R5g" userLabel="Green Bar">
+                                        <rect key="frame" x="8" y="8" width="19" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" misplaced="YES" id="zEl-08-jIF" userLabel="Red Bar">
+                                        <rect key="frame" x="8" y="33" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" id="mH9-Dm-3Im" userLabel="Local View">
+                                <rect key="frame" x="223" y="424" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Phone" id="v3p-3K-ltW" userLabel="PhoneItem"/>
+                    <connections>
+                        <outlet property="DialNumber" destination="Asy-Da-RYm" id="kxY-h4-W0I"/>
+                        <outlet property="callControls" destination="mde-TG-xzJ" id="dpe-GA-URZ"/>
+                        <outlet property="callQualityView" destination="E4Q-3d-mCu" id="wFg-LH-Y1W"/>
+                        <outlet property="dialPad" destination="qcT-oQ-yDo" id="YsF-iR-RIo"/>
+                        <outlet property="diallerBarPicture" destination="oRK-8I-htp" id="7nG-ja-jto"/>
+                        <outlet property="dialpadButton" destination="rvE-bH-6pY" id="Drj-BN-l6R"/>
+                        <outlet property="firstCallButton" destination="Fjw-6i-S32" id="qr6-av-JNz"/>
+                        <outlet property="firstCallButtonLabel" destination="gTB-Qb-au9" id="1t7-rN-01R"/>
+                        <outlet property="greenBar" destination="JEi-Uc-R5g" id="Tyh-Je-YCp"/>
+                        <outlet property="localView" destination="mH9-Dm-3Im" id="hRq-ID-zeL"/>
+                        <outlet property="muteButton" destination="NKo-3T-v5i" id="biO-DJ-KeD"/>
+                        <outlet property="redBar" destination="zEl-08-jIF" id="BeW-Q6-yZT"/>
+                        <outlet property="secondCallButton" destination="7N5-yT-kA3" id="1XF-WJ-cXJ"/>
+                        <outlet property="secondCallButtonLabel" destination="xmU-ct-D7a" id="7dm-jE-OJI"/>
+                        <outlet property="settingsButton" destination="xTM-st-NNQ" id="FUL-uL-q7B"/>
+                        <outlet property="thirdCallButton" destination="dWp-cD-Dtm" id="YgY-te-c7U"/>
+                        <outlet property="thirdCallButtonLabel" destination="Rhj-n8-h1Y" id="52L-jQ-oGE"/>
+                        <outlet property="videoButton" destination="zfl-8e-OPv" id="w3i-AA-tW6"/>
+                        <outlet property="videoView1" destination="ENE-LY-vFv" id="G9R-Fn-rha"/>
+                        <outlet property="videoView2" destination="cUa-cp-inc" id="BXg-LG-UA0"/>
+                        <outlet property="videoView3" destination="JR5-wU-x1B" id="VkF-IL-5Zd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qCD-qd-nzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1147" y="-574"/>
+        </scene>
+        <!--Client Tabbed View Controller-->
+        <scene sceneID="dBQ-6N-3iu">
+            <objects>
+                <tabBarController storyboardIdentifier="Main Screen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hda-fj-hhz" customClass="UCClientTabbedViewController" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="VfS-6t-vye">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vCt-OS-GwL" kind="relationship" relationship="viewControllers" id="Bah-mp-cqu"/>
+                        <segue destination="zyg-aP-1UG" kind="relationship" relationship="viewControllers" id="7Nu-Iu-tRi"/>
+                        <segue destination="qHf-hi-hlt" kind="relationship" relationship="viewControllers" id="KT1-Lk-bUm"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDy-va-Q5F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="-210"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Exit-50.png" width="50" height="50"/>
+        <image name="box.png" width="289" height="119"/>
+        <image name="btn_cancel.png" width="133" height="71"/>
+        <image name="dialer_input_bar.png" width="618" height="94"/>
+        <image name="endcall.png" width="92" height="103"/>
+        <image name="keypad_0.png" width="106" height="67"/>
+        <image name="keypad_1.png" width="106" height="67"/>
+        <image name="keypad_2.png" width="106" height="67"/>
+        <image name="keypad_3.png" width="106" height="67"/>
+        <image name="keypad_4.png" width="106" height="67"/>
+        <image name="keypad_5.png" width="106" height="67"/>
+        <image name="keypad_6.png" width="106" height="67"/>
+        <image name="keypad_7.png" width="106" height="67"/>
+        <image name="keypad_8.png" width="106" height="67"/>
+        <image name="keypad_9.png" width="106" height="67"/>
+        <image name="keypad_call.png" width="106" height="67"/>
+        <image name="keypad_delete.png" width="106" height="67"/>
+        <image name="keypad_hash.png" width="106" height="67"/>
+        <image name="keypad_plus.png" width="106" height="67"/>
+        <image name="keypad_star.png" width="106" height="67"/>
+        <image name="logo.png" width="189" height="89"/>
+        <image name="option_unmute.png" width="64" height="64"/>
+        <image name="option_video_enable.png" width="64" height="64"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

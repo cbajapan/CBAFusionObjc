@@ -1,0 +1,20 @@
+#import <UIKit/UIKit.h>
+#import "LoginViewController.h"
+#import "UCClientTabbedViewController.h"
+#import <UserNotifications/UserNotifications.h>
+#import "AuthenticationService.h"
+#import "NetworkMonitor.h"
+
+@interface ImSampleAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property BOOL userWantsToBeLoggedIn;
+
+//@property (readonly) ConnectivityManager *connectivityManager;
+@property (readonly) AuthenticationService *authenticationService;
+@property (readonly) NetworkMonitor *networkMonitor;
+@property (strong) LoginViewController *loginViewController;
+@property (strong) UCClientTabbedViewController *tabbedViewController;
+
+@property (strong, nonatomic) UIWindow *window;
+
+@end
