@@ -1,9 +1,9 @@
-#import "ImSampleAppDelegate.h"
+#import "AppDelegate.h"
 #import "ConnectivityManager.h"
 #import "AppSettings.h"
 #import <UserNotifications/UserNotifications.h>
 
-@implementation ImSampleAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -12,8 +12,6 @@
     _authenticationService = [[AuthenticationService new] init];
 
     
-    // Register that we raise notifications (incoming calls when app is in the background).
-    // Required for iOS8+, otherwise notifications don't appear.
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert)
                           completionHandler:^(BOOL granted, NSError * _Nullable error) {

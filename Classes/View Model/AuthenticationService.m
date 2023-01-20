@@ -1,6 +1,6 @@
 //
 //  AuthenticationService.m
-//  iOSFusionSDKSample
+//  CBAFusionObjc
 //
 //  Created by Cole M on 11/28/22.
 //  Copyright © 2022 AliceCallsBob. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AuthenticationService.h"
-#import "ImSampleAppDelegate.h"
+#import "AppDelegate.h"
 #import "UCClientTabbedViewController.h"
 #import <UserNotifications/UserNotifications.h>
 @import FCSDKiOS;
@@ -28,7 +28,7 @@
 
 - (void)createSession:(NSString *)sessionId status:(BOOL)networkStatus {
     ///Deprecated!!!!
-    //    _uc = [ACBUC ucWithConfiguration:sessionId delegate:self];
+//        _uc = [ACBUC ucWithConfiguration:sessionId delegate:self];
     
     [ACBUC ucWithConfiguration:sessionId delegate:self completionHandler:^(ACBUC * uc) {
         [uc.phone setDelegate:self];
@@ -184,7 +184,7 @@
     // TODO On loss of connection we currently choose to log in again. This should be done automatically.
     
     
-    ImSampleAppDelegate *appDelegate = (ImSampleAppDelegate *)[[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     if (!appDelegate.userWantsToBeLoggedIn)
     {
@@ -218,13 +218,15 @@
     });
 }
 
-- (void)ucDidStartSession:(ACBUC * _Nonnull)uc {
+-(void)ucDidStartSession:(ACBUC *)uc {
+
+//- (void)ucDidStartSession:(ACBUC * _Nonnull)uc {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self hider:NO];
-        ImSampleAppDelegate *appDelegate = (ImSampleAppDelegate *)[UIApplication sharedApplication].delegate;
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         UITabBarItem *accountTab = appDelegate.tabbedViewController.tabBar.items.lastObject;
         accountTab.badgeValue = nil;
-        
+
         self->automaticLoginReattempts = 0;
         LoginViewController *loginViewController = appDelegate.loginViewController;
         loginViewController.uc = self->_uc;

@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09352AA02942078B00E348E2 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09352A9F2942078B00E348E2 /* FCSDKiOS */; };
+		092450942962C25200EEA129 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 092450932962C25200EEA129 /* FCSDKiOS */; };
 		095736AF2934AD8E00E89194 /* AuthenticationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 095736AE2934AD8E00E89194 /* AuthenticationService.m */; };
 		095736B42934C15000E89194 /* NetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 095736B32934C15000E89194 /* NetworkMonitor.m */; };
 		0969F90E26AA50870001E08E /* Simulator.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0969F90D26AA50870001E08E /* Simulator.mp4 */; };
 		1E730E4C16C55F2300ABE50E /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E730E3216C55F2300ABE50E /* AccountViewController.m */; };
-		1E730E4F16C55F2300ABE50E /* ImSampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E730E3916C55F2300ABE50E /* ImSampleAppDelegate.m */; };
+		1E730E4F16C55F2300ABE50E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E730E3916C55F2300ABE50E /* AppDelegate.m */; };
 		1E730E5016C55F2300ABE50E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E730E3C16C55F2300ABE50E /* LoginViewController.m */; };
 		1E730E5116C55F2300ABE50E /* UCClientTabbedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E730E3F16C55F2300ABE50E /* UCClientTabbedViewController.m */; };
 		280B233416E8F085004C25B9 /* AEDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280B233316E8F085004C25B9 /* AEDViewController.m */; };
@@ -53,8 +53,8 @@
 		0969F90D26AA50870001E08E /* Simulator.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Simulator.mp4; sourceTree = "<group>"; };
 		1E730E3116C55F2300ABE50E /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		1E730E3216C55F2300ABE50E /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
-		1E730E3816C55F2300ABE50E /* ImSampleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImSampleAppDelegate.h; sourceTree = "<group>"; };
-		1E730E3916C55F2300ABE50E /* ImSampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImSampleAppDelegate.m; sourceTree = "<group>"; };
+		1E730E3816C55F2300ABE50E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1E730E3916C55F2300ABE50E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1E730E3B16C55F2300ABE50E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1E730E3C16C55F2300ABE50E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1E730E3E16C55F2300ABE50E /* UCClientTabbedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCClientTabbedViewController.h; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09352AA02942078B00E348E2 /* FCSDKiOS in Frameworks */,
+				092450942962C25200EEA129 /* FCSDKiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +119,8 @@
 				843900C51E5C5C1F00A7208D /* AED */,
 				843900C41E5C5C0600A7208D /* Phone */,
 				1E730E3016C55F2300ABE50E /* Account */,
-				1E730E3816C55F2300ABE50E /* ImSampleAppDelegate.h */,
-				1E730E3916C55F2300ABE50E /* ImSampleAppDelegate.m */,
+				1E730E3816C55F2300ABE50E /* AppDelegate.h */,
+				1E730E3916C55F2300ABE50E /* AppDelegate.m */,
 				1E730E3A16C55F2300ABE50E /* Login */,
 				1E730E3E16C55F2300ABE50E /* UCClientTabbedViewController.h */,
 				1E730E3F16C55F2300ABE50E /* UCClientTabbedViewController.m */,
@@ -261,7 +261,7 @@
 			);
 			name = CBAFusionObjc;
 			packageProductDependencies = (
-				09352A9F2942078B00E348E2 /* FCSDKiOS */,
+				092450932962C25200EEA129 /* FCSDKiOS */,
 			);
 			productName = ImPresenceSample;
 			productReference = 54F5AED416A76AD7008B1505 /* CBAFusionObjc.app */;
@@ -287,7 +287,7 @@
 			);
 			mainGroup = 54F5AEC916A76AD7008B1505;
 			packageReferences = (
-				09352A9E2942078B00E348E2 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */,
+				092450922962C1D200EEA129 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */,
 			);
 			productRefGroup = 54F5AED516A76AD7008B1505 /* Products */;
 			projectDirPath = "";
@@ -328,7 +328,7 @@
 				1E730E4C16C55F2300ABE50E /* AccountViewController.m in Sources */,
 				095736AF2934AD8E00E89194 /* AuthenticationService.m in Sources */,
 				095736B42934C15000E89194 /* NetworkMonitor.m in Sources */,
-				1E730E4F16C55F2300ABE50E /* ImSampleAppDelegate.m in Sources */,
+				1E730E4F16C55F2300ABE50E /* AppDelegate.m in Sources */,
 				1E730E5016C55F2300ABE50E /* LoginViewController.m in Sources */,
 				1E730E5116C55F2300ABE50E /* UCClientTabbedViewController.m in Sources */,
 				D5C6850018BBB5F900726475 /* InCallQualityView.m in Sources */,
@@ -467,7 +467,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 6SMQB2LH3S;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
@@ -492,7 +492,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cba-japan.com.CBAFusionOBJC";
+				PRODUCT_BUNDLE_IDENTIFIER = CBAFusionOBJC;
 				PRODUCT_NAME = CBAFusionObjc;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -519,7 +519,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 6SMQB2LH3S;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				EXCLUDED_ARCHS = "";
@@ -545,7 +545,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cba-japan.com.CBAFusionOBJC";
+				PRODUCT_BUNDLE_IDENTIFIER = CBAFusionOBJC;
 				PRODUCT_NAME = CBAFusionObjc;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -583,20 +583,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		09352A9E2942078B00E348E2 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */ = {
+		092450922962C1D200EEA129 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/cbajapan/swift-fcsdk-ios.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 4.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		09352A9F2942078B00E348E2 /* FCSDKiOS */ = {
+		092450932962C25200EEA129 /* FCSDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 09352A9E2942078B00E348E2 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */;
+			package = 092450922962C1D200EEA129 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */;
 			productName = FCSDKiOS;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -1,4 +1,4 @@
-#import "ImSampleAppDelegate.h"
+#import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "UCClientTabbedViewController.h"
 @import FCSDKiOS;
@@ -7,7 +7,7 @@
 
 - (void)viewDidLoad
 {
-	ImSampleAppDelegate *appDelegate = (ImSampleAppDelegate *)[UIApplication sharedApplication].delegate;
+	AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
 	appDelegate.loginViewController = self;
 
     [self restoreSavedFieldValues];
@@ -19,14 +19,14 @@
     
    
 //    NSBundle *main = [NSBundle mainBundle];
-//    NSString *resourcePath = [main pathForResource:@"Golden" ofType:@"mp4"];
+//    NSString *resourcePath = [main pathForResource:@"Simulator" ofType:@"mp4"];
 }
 
 - (IBAction)loginPress:(id)sender
 {
     [self saveFieldValues];
     
-	ImSampleAppDelegate *appDelegate = (ImSampleAppDelegate *)[UIApplication sharedApplication].delegate;
+	AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     appDelegate.userWantsToBeLoggedIn = YES;
     
     [appDelegate.authenticationService loginUser: appDelegate.networkMonitor.status];

@@ -5,11 +5,10 @@
 #import "AuthenticationService.h"
 #import "NetworkMonitor.h"
 
-@interface ImSampleAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property BOOL userWantsToBeLoggedIn;
 
-//@property (readonly) ConnectivityManager *connectivityManager;
 @property (readonly) AuthenticationService *authenticationService;
 @property (readonly) NetworkMonitor *networkMonitor;
 @property (strong) LoginViewController *loginViewController;

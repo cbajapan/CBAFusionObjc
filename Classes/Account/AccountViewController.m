@@ -1,5 +1,5 @@
 #import "AccountViewController.h"
-#import "ImSampleAppDelegate.h"
+#import "AppDelegate.h"
 
 @interface AccountViewController ()
 
@@ -33,7 +33,7 @@
 
 - (IBAction)logoutButtonAction:(id)sender
 {
-	ImSampleAppDelegate *appDelegate = (ImSampleAppDelegate *)[UIApplication sharedApplication].delegate;
+	AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     appDelegate.userWantsToBeLoggedIn = NO;
 
     [self.uc stopSession];
@@ -42,7 +42,6 @@
     hider.alpha = 0.3f;
     hider.backgroundColor = [UIColor blackColor];
     [self.view insertSubview:hider atIndex:self.view.subviews.count];
-//    [appDelegate.connectivityManager logout];
     [appDelegate.authenticationService logout];
 
     [hider removeFromSuperview];

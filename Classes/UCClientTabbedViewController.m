@@ -1,5 +1,5 @@
 #import "UCClientTabbedViewController.h"
-#import "ImSampleAppDelegate.h"
+#import "AppDelegate.h"
 
 @implementation UCClientTabbedViewController
 
@@ -12,7 +12,7 @@
 {
     [super viewDidLoad];
 
-	ImSampleAppDelegate *app = (ImSampleAppDelegate *)[UIApplication sharedApplication].delegate;
+	AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
 	app.tabbedViewController = self;
 
     // Custom initialization
