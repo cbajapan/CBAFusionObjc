@@ -425,7 +425,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
 
 #pragma mark - ACBClientDelegateMethods
 
-- (void)phone:(ACBClientPhone * _Nonnull)phone didReceive:(ACBClientCall * _Nonnull)call {
+- (void)phone:(ACBClientPhone *)phone received:(ACBClientCall *)call completionHandler:(void (^)(NSError * error))completionHandler {
     self.lastIncomingCall = call;
     [self playRingtone];
     
@@ -441,11 +441,16 @@ static NSString *const RINGTONE_FILE = @"ringring";
     } else {
         [self presentIncomingCallAlertForCall:call];
     }
+    //TODO: REMOVE NIL FUTURE VERSIONS OF THIS CALLBACK WILL NOT THROW AN ERROR
+    completionHandler(nil);
 }
 
-- (void) phone:(ACBClientPhone*)phone didChangeCaptureSetting:(ACBVideoCaptureSetting*)settings forCamera:(AVCaptureDevicePosition)camera
-{
+
+- (void)phone:(ACBClientPhone *)phone didChangeSettings:(ACBVideoCaptureSetting *)settings for:(enum AVCaptureDevicePosition)camera completionHandler:(void (^)(NSError * _Nullable))completionHandler {
     NSLog(@"didChangeCaptureSetting - resolution=%ld frame rate= %lu camera=%ld", (long)settings.resolution, (unsigned long)settings.frameRate, (long)camera);
+    
+    //TODO: REMOVE NIL FUTURE VERSIONS OF THIS CALLBACK WILL NOT THROW AN ERROR
+    completionHandler(nil);
 }
 
 - (void) call:(ACBClientCall*)call didReceiveSessionInterruption:(NSString*)message {
@@ -472,16 +477,17 @@ static NSString *const RINGTONE_FILE = @"ringring";
     }
 }
 
-- (void) call:(ACBClientCall*)call didReceiveCallFailureWithError:(NSError *)error {
+- (void)didReceiveCallFailureWith:(NSError *)error call:(ACBClientCall *)call completionHandler:(void (^)(void))completionHandler {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"ERROR (for call)" message:error.description preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction * continueButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){}];
         [alert addAction:continueButton];
         [self presentViewController:alert animated:YES completion:nil];
     });
+    completionHandler();
 }
 
-- (void) call:(ACBClientCall *)call didReceiveDialFailureWithError:(NSError *)error {
+- (void)didReceiveDialFailureWith:(NSError *)error call:(ACBClientCall *)call completionHandler:(void (^)(void))completionHandler {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSString* errorReason = [[error userInfo] objectForKey:NSLocalizedFailureReasonErrorKey];
         if (!errorReason) {
@@ -493,18 +499,20 @@ static NSString *const RINGTONE_FILE = @"ringring";
         [self presentViewController:alert animated:YES completion:nil];
         [self switchToNotInCallUI];
     });
+    completionHandler();
 }
 
-- (void) call:(ACBClientCall*)call didReceiveCallRecordingPermissionFailure:(NSString *)message {
+- (void)didReceiveCallRecordingPermissionFailure:(NSString *)message call:(ACBClientCall *)call completionHandler:(void (^)(void))completionHandler {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"ERROR (for call)" message:message preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction * continueButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){}];
         [alert addAction:continueButton];
         [self presentViewController:alert animated:YES completion:nil];
     });
+    completionHandler();
 }
 
-- (void)call:(ACBClientCall * _Nonnull)call didChange:(enum ACBClientCallStatus)status {
+- (void)didChange:(enum ACBClientCallStatus)status call:(ACBClientCall *)call completionHandler:(void (^)(void))completionHandler {
     switch (status) {
         case ACBClientCallStatusRinging:
             [self playRingtone];
@@ -558,6 +566,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
             callIdentifier = nil;
             break;
     }
+    completionHandler();
 }
 
 - (void) setLabel {
@@ -566,7 +575,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
     });
 }
 
-- (void) call:(ACBClientCall*)call didReceiveSSRCsForAudio:(NSArray*) audioSSRCs andVideo:(NSArray*) videoSSRCs {
+- (void)didReceiveSSRCsFor:(NSArray<NSString *> *)audioSSRCs andVideo:(NSArray<NSString *> *)videoSSRCs call:(ACBClientCall *)call completionHandler:(void (^)(void))completionHandler {
     //    dispatch_async(dispatch_get_main_queue(), ^{
     //        NSString *message = [NSString stringWithFormat:@"Received SSRC information for AUDIO %@ and VIDEO %@", audioSSRCs, videoSSRCs];
     //
@@ -577,13 +586,16 @@ static NSString *const RINGTONE_FILE = @"ringring";
     //        [alert addAction:continueButton];
     //        [self presentViewController:alert animated:YES completion:nil];
     //    });
+    completionHandler();
 }
 
-- (void)call:(ACBClientCall *)call didReportInboundQualityChange:(NSInteger)inboundQuality {
+- (void)didReportInboundQualityChange:(NSInteger)inboundQuality with:(ACBClientCall *)call completionHandler:(void (^)(void))completionHandler {
     self.callQualityView.quality = inboundQuality;
+    completionHandler();
 }
 
-- (void) callDidReceiveMediaChangeRequest:(ACBClientCall *)call {
+- (void)didReceiveMediaChangeRequest:(ACBClientCall *)call completionHandler:(void (^)(void))completionHandler {
+    completionHandler();
 }
 
 
@@ -629,14 +641,14 @@ static NSString *const RINGTONE_FILE = @"ringring";
         }
     });
 }
-
-- (void) call:(ACBClientCall *)call didReceiveProvisionalResponse:(ACBClientCallProvisionalResponse)responseStatus withReason:(NSString *)reason {
+- (void)responseStatusWithDidReceive:(enum ACBClientCallProvisionalResponse)responseStatus withReason:(NSString *)reason call:(ACBClientCall *)call completionHandler:(void (^)(void))completionHandler {
     NSString *resp = [NSString stringWithFormat:@"Received Provisional %@ with additional reason %@",
                       [self stringifyStatus:responseStatus], reason];
     
     NSLog(@"%@", resp);
     
     // [self alertWithProvisional: resp];
+    completionHandler();
 }
 
 #pragma mark - TextFieldDelegateMethods

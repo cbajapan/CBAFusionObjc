@@ -31,6 +31,7 @@
 //        _uc = [ACBUC ucWithConfiguration:sessionId delegate:self];
     
     [ACBUC ucWithConfiguration:sessionId delegate:self completionHandler:^(ACBUC * uc) {
+        //We Need to temporarily set the delegate
         [uc.phone setDelegate:self];
         [uc setNetworkReachable:networkStatus];
         BOOL acceptUntrustedCertificates = [[[NSUserDefaults standardUserDefaults] objectForKey:@"acceptUntrustedCertificates"] boolValue];
@@ -85,7 +86,6 @@
     NSString *scheme = secure ? @"https" : @"http";
     
     NSString *string = [NSString stringWithFormat:@"%@://%@:%@/csdk-sample/SDK/login", scheme, server, port];
-    
     //    NSNumber *useCookies = [[NSUserDefaults standardUserDefaults] objectForKey:@"useCookies"];
     
     //    NSNumber *acceptCertificateNumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"acceptUntrustedCertificates"];
@@ -166,8 +166,7 @@
     [[session dataTaskWithRequest:request] resume];
 }
 
-
-- (void)ucDidFailToStartSession:(ACBUC * _Nonnull)uc { 
+- (void)didFailToStartSession:(ACBUC *)uc completionHandler:(void (^)(void))completionHandler {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Registration error" message:@"Registration failed" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction * continueButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
@@ -177,13 +176,12 @@
         id rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
         [rootViewController presentViewController:alert animated:YES completion:nil];
     });
+    completionHandler();
 }
 
-- (void)ucDidLoseConnection:(ACBUC * _Nonnull)uc {
+- (void)didLoseConnection:(ACBUC *)uc completionHandler:(void (^)(void))completionHandler {
     [self logout];
     // TODO On loss of connection we currently choose to log in again. This should be done automatically.
-    
-    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     if (!appDelegate.userWantsToBeLoggedIn)
@@ -203,10 +201,10 @@
         lastReconnectionAttempt = [NSDate timeIntervalSinceReferenceDate];
         [self loginUser:NO];
     }
-    
+    completionHandler();
 }
 
-- (void)ucDidReceiveSystemFailure:(ACBUC * _Nonnull)uc {
+- (void)didReceiveSystemFailure:(ACBUC *)uc completionHandler:(void (^)(void))completionHandler {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"ERROR" message:@"System failure. Please log in again." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction * continueButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
@@ -216,11 +214,10 @@
         id rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
         [rootViewController presentViewController:alert animated:YES completion:nil];
     });
+    completionHandler();
 }
 
--(void)ucDidStartSession:(ACBUC *)uc {
-
-//- (void)ucDidStartSession:(ACBUC * _Nonnull)uc {
+- (void)didStartSession:(ACBUC *)uc completionHandler:(void (^)(void))completionHandler {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self hider:NO];
         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -234,6 +231,7 @@
         // TODO - not to perform the segue if the user logged out manually, or in other words perform it only after a non-repeated login from the Login view controller. This is not causing a problem, anyway, as the segue doesn't seem to operate if the login form is not on top.
         [loginViewController performSegueWithIdentifier:@"loginSegue" sender:self];
     });
+    completionHandler();
 }
 
 
