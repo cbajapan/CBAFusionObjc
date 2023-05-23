@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Media Preferences</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Audio Direction</string>
+			<key>Key</key>
+			<string>acb.audio.direction</string>
+			<key>DefaultValue</key>
+			<string>SendAndReceive</string>
+			<key>Titles</key>
+			<array>
+				<string>Send And Receive</string>
+				<string>Send Only</string>
+				<string>Receive Only</string>
+				<string>None</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>SendAndReceive</string>
+				<string>SendOnly</string>
+				<string>ReceiveOnly</string>
+				<string>None</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Video Direction</string>
+			<key>Key</key>
+			<string>acb.video.direction</string>
+			<key>DefaultValue</key>
+			<string>SendAndReceive</string>
+			<key>Titles</key>
+			<array>
+				<string>Send And Receive</string>
+				<string>Send Only</string>
+				<string>Receive Only</string>
+				<string>None</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>SendAndReceive</string>
+				<string>SendOnly</string>
+				<string>ReceiveOnly</string>
+				<string>None</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
