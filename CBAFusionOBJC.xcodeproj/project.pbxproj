@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0911F6C02A715054009FCC24 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 0911F6BF2A715054009FCC24 /* FCSDKiOS */; };
+		092BCA812A416043000F8B16 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 092BCA802A416043000F8B16 /* FCSDKiOS */; };
 		095736AF2934AD8E00E89194 /* AuthenticationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 095736AE2934AD8E00E89194 /* AuthenticationService.m */; };
 		095736B42934C15000E89194 /* NetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 095736B32934C15000E89194 /* NetworkMonitor.m */; };
 		0969F90E26AA50870001E08E /* Simulator.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0969F90D26AA50870001E08E /* Simulator.mp4 */; };
-		09B9C8BE29FA5F28000C2596 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09B9C8BD29FA5F28000C2596 /* FCSDKiOS */; };
 		09F853552A1C81EE00651724 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F853542A1C81EE00651724 /* Main.storyboard */; };
 		09F853572A1C81FE00651724 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F853562A1C81FE00651724 /* Default-568h@2x.png */; };
 		09F853592A1C820600651724 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F853582A1C820600651724 /* Media.xcassets */; };
@@ -86,7 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09B9C8BE29FA5F28000C2596 /* FCSDKiOS in Frameworks */,
+				0911F6C02A715054009FCC24 /* FCSDKiOS in Frameworks */,
+				092BCA812A416043000F8B16 /* FCSDKiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +100,13 @@
 			children = (
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		092BCA7F2A416043000F8B16 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		095736AD2934AD6C00E89194 /* View Model */ = {
@@ -181,6 +190,7 @@
 				09F853532A1C7F3600651724 /* CBAFusionOBJC */,
 				0925779128E313CA00AA9F37 /* Packages */,
 				54F5AED516A76AD7008B1505 /* Products */,
+				092BCA7F2A416043000F8B16 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -276,7 +286,8 @@
 			);
 			name = CBAFusionOBJC;
 			packageProductDependencies = (
-				09B9C8BD29FA5F28000C2596 /* FCSDKiOS */,
+				092BCA802A416043000F8B16 /* FCSDKiOS */,
+				0911F6BF2A715054009FCC24 /* FCSDKiOS */,
 			);
 			productName = ImPresenceSample;
 			productReference = 54F5AED416A76AD7008B1505 /* CBAFusionOBJC.app */;
@@ -302,7 +313,7 @@
 			);
 			mainGroup = 54F5AEC916A76AD7008B1505;
 			packageReferences = (
-				09B9C8BC29FA5F28000C2596 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */,
+				0911F6BE2A715054009FCC24 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */,
 			);
 			productRefGroup = 54F5AED516A76AD7008B1505 /* Products */;
 			projectDirPath = "";
@@ -486,7 +497,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -511,10 +522,11 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 4.2.2;
+				MARKETING_VERSION = 4.2.5;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = CBAFusionOBJC;
 				PRODUCT_NAME = CBAFusionOBJC;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -537,7 +549,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -563,10 +575,11 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 4.2.2;
+				MARKETING_VERSION = 4.2.5;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = CBAFusionOBJC;
 				PRODUCT_NAME = CBAFusionOBJC;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -603,7 +616,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		09B9C8BC29FA5F28000C2596 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */ = {
+		0911F6BE2A715054009FCC24 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/cbajapan/swift-fcsdk-ios.git";
 			requirement = {
@@ -614,9 +627,13 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		09B9C8BD29FA5F28000C2596 /* FCSDKiOS */ = {
+		0911F6BF2A715054009FCC24 /* FCSDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 09B9C8BC29FA5F28000C2596 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */;
+			package = 0911F6BE2A715054009FCC24 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */;
+			productName = FCSDKiOS;
+		};
+		092BCA802A416043000F8B16 /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
 			productName = FCSDKiOS;
 		};
 /* End XCSwiftPackageProductDependency section */
