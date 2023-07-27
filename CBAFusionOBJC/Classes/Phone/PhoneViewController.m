@@ -91,6 +91,12 @@ static NSString *const RINGTONE_FILE = @"ringring";
             [self->previewView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-8].active = YES;
             [self->previewView.widthAnchor constraintEqualToConstant: 70].active = YES;
             [self->previewView.heightAnchor constraintEqualToConstant: 70].active = YES;
+
+            //Please Use this Code to mirror the view if you are using FCSDKiOS 4.2.2
+            CGFloat xFactor = -1;
+            CGAffineTransform transform = self->previewView.transform;
+            transform = CGAffineTransformMakeScale(xFactor, 1);
+            self->previewView.transform = transform;
             
             // Hide the video view (remote caller) and call controls before call created
             [self.remoteVideoView setHidden:true];
@@ -382,7 +388,16 @@ static NSString *const RINGTONE_FILE = @"ringring";
                 [view.heightAnchor constraintEqualToConstant: 70].active = YES;
                 view.frame = view.bounds;
                 view.layer.masksToBounds = YES;
+
                 self->previewView = view;
+                
+                
+                //MARK: Please Use this Code to mirror the view if you are using FCSDKiOS 4.2.2
+                CGFloat xFactor = -1;
+                CGAffineTransform transform = self->previewView.transform;
+                transform = CGAffineTransformMakeScale(xFactor, 1);
+                self->previewView.transform = transform;
+                
                 [self sharedViewSetupUI];
             }];
             [call captureSessionWithCompletionHandler:^(AVCaptureSession * session) {}];
