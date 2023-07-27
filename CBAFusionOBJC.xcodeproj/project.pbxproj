@@ -617,8 +617,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/cbajapan/swift-fcsdk-ios.git";
 			requirement = {
-				kind = exactVersion;
-				version = 4.2.2;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
