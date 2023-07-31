@@ -133,22 +133,25 @@ static NSString *const RINGTONE_FILE = @"ringring";
 #pragma mark - quality
 
 - (void) configureResolutionOptions {
-    BOOL showResolutionChoice720 = false;
-    BOOL showResolutionChoice480 = false;
-    NSArray *recCaptureSettings = [uc.phone recommendedCaptureSettings];
-    for(ACBVideoCaptureSetting* captureSetting in recCaptureSettings) {
-        if(captureSetting.resolution == ACBVideoCaptureResolution1280x720) {
-            showResolutionChoice720 = true;
-            showResolutionChoice480 = true;
-        } else if(captureSetting.resolution == ACBVideoCaptureResolution640x480) {
-            showResolutionChoice480 = true;
-        }
-    } if(!showResolutionChoice720) {
-        [self.resolutionControl setEnabled:false forSegmentAtIndex:3];
-        
-    } if(!showResolutionChoice480) {
-        [self.resolutionControl setEnabled:false forSegmentAtIndex:2];
-    }
+    __block BOOL showResolutionChoice720 = false;
+    __block BOOL showResolutionChoice480 = false;
+
+    [self->uc.phone recommendedCaptureSettingsWithCompletionHandler:^(NSArray<ACBVideoCaptureSetting*>* recCaptureSettings) {
+         for(ACBVideoCaptureSetting* captureSetting in recCaptureSettings) {
+             if(captureSetting.resolution == ACBVideoCaptureResolution1280x720) {
+                 showResolutionChoice720 = true;
+                 showResolutionChoice480 = true;
+             } else if(captureSetting.resolution == ACBVideoCaptureResolution640x480) {
+                 showResolutionChoice480 = true;
+             }
+         } if(!showResolutionChoice720) {
+             [self.resolutionControl setEnabled:false forSegmentAtIndex:3];
+             
+         } if(!showResolutionChoice480) {
+             [self.resolutionControl setEnabled:false forSegmentAtIndex:2];
+         }
+    }];
+
 }
 
 - (void) configureFramerateOptions {
@@ -156,16 +159,22 @@ static NSString *const RINGTONE_FILE = @"ringring";
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.framerateControl setEnabled:NO forSegmentAtIndex:1];
         [self.framerateControl setSelectedSegmentIndex:0];
-        NSArray *recCaptureSettings = [self->uc.phone recommendedCaptureSettings];
-        for(ACBVideoCaptureSetting* captureSetting in recCaptureSettings)
-        {
-            if(captureSetting.frameRate > 20)
+       [self->uc.phone recommendedCaptureSettingsWithCompletionHandler:^(NSArray<ACBVideoCaptureSetting*>* recCaptureSettings) {
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+            for(ACBVideoCaptureSetting* captureSetting in recCaptureSettings)
             {
-                [self.framerateControl setEnabled:YES forSegmentAtIndex:1];
-                [self.framerateControl setSelectedSegmentIndex:1];
-                break;
+                if(captureSetting.frameRate > 20)
+                {
+                    
+                    [self.framerateControl setEnabled:YES forSegmentAtIndex:1];
+                    [self.framerateControl setSelectedSegmentIndex:1];
+                    break;
+                }
             }
-        }
+       });
+        }];
+
     });
 }
 
@@ -192,7 +201,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
     if(self.call) {
         if (_call.status == ACBClientCallStatusInCall) {
             if(!self.isHeld) {
-                [_call hold];
+                [_call holdWithCompletionHandler:^{}];
                 self.isHeld = true;
                 [self.holdCallButton setTitle:@"Unhold" forState:UIControlStateNormal];
                 if (@available(iOS 15, *)) {} else {
@@ -200,7 +209,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
                 }
                 
             } else {
-                [_call resume];
+                [_call resumeWithCompletionHandler:^{}];
                 self.isHeld = false;
                 [self.holdCallButton setTitle:@"Hold" forState:UIControlStateNormal];
                 if (@available(iOS 15, *)) {} else {
@@ -217,7 +226,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
             [provAlerts[0] dismissViewControllerAnimated:YES completion:nil];
         }
         [provAlerts removeAllObjects];
-        [self.call end];
+        [self.call endWithCompletionHandler:^{}];
         
         [self switchToNotInCallUI];
     }
@@ -294,7 +303,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
 // toggles between front and rear camera capture
 - (void)previewWasTapped:(UITapGestureRecognizer *)recognizer {
     self.currentCamera = (self.currentCamera == AVCaptureDevicePositionBack) ? AVCaptureDevicePositionFront : AVCaptureDevicePositionBack;
-    [self.uc.phone setCamera: self.currentCamera];
+    [self.uc.phone setCamera: self.currentCamera completionHandler:^{}];
 }
 
 #pragma mark - CallInstantiation
@@ -388,9 +397,8 @@ static NSString *const RINGTONE_FILE = @"ringring";
                 [view.heightAnchor constraintEqualToConstant: 70].active = YES;
                 view.frame = view.bounds;
                 view.layer.masksToBounds = YES;
-
+        
                 self->previewView = view;
-                
                 
                 //MARK: Please Use this Code to mirror the view if you are using FCSDKiOS 4.2.2
                 CGFloat xFactor = -1;
@@ -408,7 +416,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
 #pragma mark - Audio
 
 - (void)setAudioEnabledState:(BOOL)enabledState {
-    [_call enableLocalAudio:enabledState];
+    [_call enableLocalAudio:enabledState completionHandler:^{}];;
     audioEnabled = enabledState;
     
     [self setAudioMuteIconForAudioState:enabledState];
@@ -426,7 +434,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
 #pragma mark - Video
 
 - (void)setVideoEnabledState:(BOOL)videoState {
-    [_call enableLocalVideo:videoState];
+    [_call enableLocalVideo:videoState completionHandler:^{}];;
     videoEnabled = videoState;
     
     [self setVideoMuteIcon:videoState];
@@ -535,7 +543,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
         if (self.call) {
             if (_call.status == ACBClientCallStatusInCall) {
                 if (!self.isHeld) {
-                    [_call hold];
+                    [_call holdWithCompletionHandler:^{}];
                     self.isHeld = true;
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -606,10 +614,13 @@ static NSString *const RINGTONE_FILE = @"ringring";
             [self stopRingingIfNoOtherCallIsRinging:nil];
             break;
         case ACBClientCallStatusEnded:
-            [self updateUIForEndedCall:call];
             if(callIdentifier != nil) {
-                [self.call end];
-                [self.lastIncomingCall end];
+                [self.call endWithCompletionHandler:^{
+                    [self updateUIForEndedCall:call];
+                }];
+                [self.lastIncomingCall endWithCompletionHandler:^{
+                    [self updateUIForEndedCall:call];
+                }];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if ([self->provAlerts count] > 0) {
                         [self->provAlerts[0] dismissViewControllerAnimated:YES completion:nil];
@@ -626,8 +637,8 @@ static NSString *const RINGTONE_FILE = @"ringring";
             [self updateUIForEndedCall:call];
             if (callIdentifier != nil)
             {
-                [self.call end];
-                [self.lastIncomingCall end];
+                [self.call endWithCompletionHandler:^{}];
+                [self.lastIncomingCall endWithCompletionHandler:^{}];
             }
             callIdentifier = nil;
             break;
@@ -639,8 +650,8 @@ static NSString *const RINGTONE_FILE = @"ringring";
             [self updateUIForEndedCall:call];
             if(callIdentifier != nil)
             {
-                [self.call end];
-                [self.lastIncomingCall end];
+                [self.call endWithCompletionHandler:^{}];
+                [self.lastIncomingCall endWithCompletionHandler:^{}];
             }
             callIdentifier = nil;
             break;
@@ -791,7 +802,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
             [alert addAction:continueButton];
             UIAlertAction * dismissButton = [UIAlertAction actionWithTitle:@"DISMISS" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
                 NSLog(@"Rejected Call");
-                [self.lastIncomingCall end];
+                [self.lastIncomingCall endWithCompletionHandler:^{}];
             }];
             [alert addAction:dismissButton];
             [self presentViewController:alert animated:YES completion:nil];
@@ -813,6 +824,8 @@ static NSString *const RINGTONE_FILE = @"ringring";
 
 - (void) updateUIForEndedCall:(ACBClientCall *)call {
     if (call == self.lastIncomingCall) {
+        [self.lastIncomingCall removeLocalBufferViewWithCompletionHandler:^{}];
+        [self.lastIncomingCall removeBufferViewWithCompletionHandler:^{}];
         self.lastIncomingCall = nil;
     }
     [self stopRingingIfNoOtherCallIsRinging:nil];
