@@ -133,6 +133,7 @@ API_AVAILABLE(ios(13))
                                                                    fromData:data completionHandler:^(NSData *data,NSURLResponse *response,NSError *error) {
             if (error != nil) {
                 NSLog(@"ERROR");
+                return;
             }
             
             NSLog(@"SUCCESS WITH RESPONSE %@", response);
