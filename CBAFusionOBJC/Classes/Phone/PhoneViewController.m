@@ -44,14 +44,14 @@ static NSString *const RINGTONE_FILE = @"ringring";
     [self.uc.phone setDelegate:self];
     //IF YOU DO NOT START THE AUDIO SESSION YOU CANNOT USE THE MANAGER PROPERLY!
     [self.uc.phone.audioDeviceManager start];
+    [self requestMicrophoneAndCameraPermissionFromAppSettings];
 }
 
 
 /// We Show Case how to use both programatic UIView's and Storyboards
 - (void) setupPhone:(void (^)(void))completionHandler {
     provAlerts = [[NSMutableArray alloc] init];
-    [self requestMicrophoneAndCameraPermissionFromAppSettings];
-    
+
     // Default the audio and video to be enabled on start of call
     audioAllowed = [AppSettings preferredAudioDirection] == ACBMediaDirectionReceiveOnly || [AppSettings preferredAudioDirection] == ACBMediaDirectionSendAndReceive;
     videoAllowed = [AppSettings preferredVideoDirection] == ACBMediaDirectionReceiveOnly || [AppSettings preferredVideoDirection] == ACBMediaDirectionSendAndReceive;
