@@ -3,6 +3,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "InCallQualityView.h"
 #import "UCClientTabbedViewController.h"
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13
 @import FCSDKiOS;
 
 API_AVAILABLE(ios(13))
@@ -55,3 +56,4 @@ API_AVAILABLE(ios(13))
 - (void) dial;
 
 @end
+#endif

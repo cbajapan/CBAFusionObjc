@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13
 @import FCSDKiOS;
 
 /**
@@ -15,3 +16,4 @@
 + (void) toggleAutoAnswer: (BOOL) enableAutoAnswer;
 
 @end
+#endif

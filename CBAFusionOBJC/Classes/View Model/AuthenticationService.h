@@ -8,6 +8,7 @@
 //
 #ifndef AuthenticationService_h
 #define AuthenticationService_h
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13
 @import FCSDKiOS;
 
 @interface AuthenticationService : NSObject<ACBUCDelegate, NSURLSessionDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate, ACBClientPhoneDelegate>
@@ -17,5 +18,5 @@
 - (void)logout;
 
 @end
-
+#endif
 #endif /* AuthenticationService_h */

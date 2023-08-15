@@ -1,7 +1,9 @@
 #import "PhoneViewController.h"
 #import "AppSettings.h"
 #import <UserNotifications/UserNotifications.h>
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13
 @import FCSDKiOS;
+
 
 #pragma mark - StaticConstants
 
@@ -840,3 +842,4 @@ static NSString *const RINGTONE_FILE = @"ringring";
 }
 
 @end
+#endif

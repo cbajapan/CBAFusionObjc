@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "UCClientTabbedViewController.h"
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13
 @import FCSDKiOS;
 
 @implementation LoginViewController
@@ -90,3 +91,4 @@
 }
 
 @end
+#endif

@@ -1,3 +1,4 @@
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13
 #import "AEDViewController.h"
 @import FCSDKiOS;
 
@@ -312,3 +313,4 @@ API_AVAILABLE(ios(13)){
 
 
 @end
+#endif
