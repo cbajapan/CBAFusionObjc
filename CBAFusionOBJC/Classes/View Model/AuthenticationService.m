@@ -14,7 +14,6 @@
 
 #ifdef NSFoundationVersionNumber_iOS_13_0
 @import FCSDKiOS;
-#endif
 
 API_AVAILABLE(ios(13))
 @interface AuthenticationService()
@@ -258,5 +257,4 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 }
 
 @end
-
-
+#endif

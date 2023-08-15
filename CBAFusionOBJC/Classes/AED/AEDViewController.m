@@ -1,4 +1,4 @@
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13
+#ifdef NSFoundationVersionNumber_iOS_13_0
 #import "AEDViewController.h"
 @import FCSDKiOS;
 
