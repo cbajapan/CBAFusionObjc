@@ -1,4 +1,4 @@
-#ifdef NSFoundationVersionNumber_iOS_13_0
+//#if NSFoundationVersionNumber > 12
 #import "AEDViewController.h"
 @import FCSDKiOS;
 
@@ -313,4 +313,5 @@ API_AVAILABLE(ios(13)){
 
 
 @end
-#endif
+
+//#endif

@@ -1,3 +1,4 @@
+//#if NSFoundationVersionNumber > 12
 #import "ACBVideoCaptureSetting+UI.h"
 
 @implementation ACBVideoCaptureSetting (UI)
@@ -18,3 +19,4 @@
 }
 
 @end
+//#endif

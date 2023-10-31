@@ -1,4 +1,5 @@
-#ifdef NSFoundationVersionNumber_iOS_13_0
+
+//#if NSFoundationVersionNumber > 12
 @import FCSDKiOS;
 
 @interface ACBVideoCaptureSetting (UI)
@@ -6,4 +7,5 @@
 - (NSString*) uiString;
 
 @end
-#endif
+
+//#endif

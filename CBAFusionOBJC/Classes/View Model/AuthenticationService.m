@@ -5,14 +5,14 @@
 //  Created by Cole M on 11/28/22.
 //  Copyright © 2022 AliceCallsBob. All rights reserved.
 //
-
+//#if NSFoundationVersionNumber > 12
 #import <Foundation/Foundation.h>
 #import "AuthenticationService.h"
 #import "AppDelegate.h"
 #import "UCClientTabbedViewController.h"
 #import <UserNotifications/UserNotifications.h>
 
-#ifdef NSFoundationVersionNumber_iOS_13_0
+
 @import FCSDKiOS;
 
 API_AVAILABLE(ios(13))
@@ -30,20 +30,25 @@ API_AVAILABLE(ios(13))
 @implementation AuthenticationService
 
 - (void)createSession:(NSString *)sessionId status:(BOOL)networkStatus {
-    ///Deprecated!!!!
-//        _uc = [ACBUC ucWithConfiguration:sessionId delegate:self];
-    
+
     if (@available(iOS 13, *)) {
-        [ACBUC ucWithConfiguration:sessionId delegate:self completionHandler:^(ACBUC * uc) {
+        NSArray *strings = [[NSMutableArray alloc] init];
+        [ACBUC ucWithConfiguration:sessionId stunServers:strings delegate:self options: ACBUCOptions.noVoiceProcessing completionHandler:^(ACBUC * uc) {
+
+//        [ACBUC ucWithConfiguration:sessionId delegate:self completionHandler:^(ACBUC * uc) {
             //We Need to temporarily set the delegate
-            [uc.phone setDelegate:self];
             [uc setNetworkReachable:networkStatus];
+            [uc.phone setDelegate:self];
             BOOL acceptUntrustedCertificates = [[[NSUserDefaults standardUserDefaults] objectForKey:@"acceptUntrustedCertificates"] boolValue];
             [uc acceptAnyCertificate:acceptUntrustedCertificates];
             NSNumber *useCookiesNumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"useCookies"];
             uc.useCookies = [useCookiesNumber boolValue];
-            [uc startSession];
-            self->_uc = uc;
+
+            [uc startSessionWithTriggerReconnect:YES completionHandler:^{
+                self->_uc = uc;
+            }];
+//            [uc startSession];
+//
         }];
     } else {
         // Fallback on earlier versions
@@ -189,26 +194,38 @@ API_AVAILABLE(ios(13))
 
 - (void)didLoseConnection:(ACBUC *)uc completionHandler:(void (^)(void))completionHandler  API_AVAILABLE(ios(13)){
     [self logout];
-    // TODO On loss of connection we currently choose to log in again. This should be done automatically.
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    if (!appDelegate.userWantsToBeLoggedIn)
-    {
-        return;
-    }
-    
-    UITabBarItem *accountTab = appDelegate.tabbedViewController.tabBar.items.lastObject;
-    if ((automaticLoginReattempts >= 2) ||
-        (lastReconnectionAttempt >= [NSDate timeIntervalSinceReferenceDate] - 30))
-    {
-        accountTab.badgeValue = @"Logged Out";
-    }
-    else
-    {
-        accountTab.badgeValue = @"...logging in...";
-        lastReconnectionAttempt = [NSDate timeIntervalSinceReferenceDate];
-        [self loginUser:NO];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+            // TODO: On loss of connection we currently choose to log in again. This should be done automatically.
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            
+            if (!appDelegate.userWantsToBeLoggedIn)
+            {
+                return;
+            }
+            
+            UITabBarItem *accountTab = appDelegate.tabbedViewController.tabBar.items.lastObject;
+        if ((self->automaticLoginReattempts >= 2) ||
+            (self->lastReconnectionAttempt >= [NSDate timeIntervalSinceReferenceDate] - 30))
+            {
+                accountTab.badgeValue = @"Logged Out";
+            }
+            else
+            {
+                accountTab.badgeValue = @"...logging in...";
+                self->lastReconnectionAttempt = [NSDate timeIntervalSinceReferenceDate];
+                [self loginUser:NO];
+            }
+    });
+    completionHandler();
+}
+
+- (void)uc:(ACBUC *)uc willRetryConnection:(NSInteger)attemptNumber in:(NSTimeInterval)delay completionHandler:(void (^)(void))completionHandler  API_AVAILABLE(ios(13)){
+    NSLog(@"WILL RETRY CONNECTION___%ld", (long)attemptNumber);
+    completionHandler();
+}
+
+- (void)didReestablishConnection:(ACBUC *)uc completionHandler:(void (^)(void))completionHandler  API_AVAILABLE(ios(13)){
+    NSLog(@"DID REESTABLISH CONNECTION");
     completionHandler();
 }
 
@@ -255,6 +272,5 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
         completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
     }
 }
-
 @end
-#endif
+//#endif

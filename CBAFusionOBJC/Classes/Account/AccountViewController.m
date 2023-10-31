@@ -1,3 +1,4 @@
+//#if NSFoundationVersionNumber > 12
 #import "AccountViewController.h"
 #import "AppDelegate.h"
 
@@ -57,3 +58,5 @@
 }
 
 @end
+
+//#endif

@@ -6,11 +6,11 @@
 //  Copyright © 2022 AliceCallsBob. All rights reserved.
 //
 //
+
+//#if NSFoundationVersionNumber > 12
 #ifndef AuthenticationService_h
 #define AuthenticationService_h
-#ifdef NSFoundationVersionNumber_iOS_13_0
 @import FCSDKiOS;
-
 @interface AuthenticationService : NSObject<ACBUCDelegate, NSURLSessionDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate, ACBClientPhoneDelegate>
 
 - (void)createSession:(NSString*)sessionId status:(BOOL)networkStatus;
@@ -18,5 +18,5 @@
 - (void)logout;
 
 @end
-#endif
+//#endif
 #endif /* AuthenticationService_h */

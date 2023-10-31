@@ -1,7 +1,8 @@
+//#if NSFoundationVersionNumber > 12
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "UCClientTabbedViewController.h"
-#ifdef NSFoundationVersionNumber_iOS_13_0
+
 @import FCSDKiOS;
 
 @implementation LoginViewController
@@ -91,4 +92,5 @@
 }
 
 @end
-#endif
+
+//#endif

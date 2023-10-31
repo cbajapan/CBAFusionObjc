@@ -1,3 +1,4 @@
+//#if NSFoundationVersionNumber > 12
 #import "AppSettings.h"
 
 #define KEY_AUDIO_DIRECTION @"acb.audio.direction"
@@ -51,3 +52,5 @@
 }
 
 @end
+
+//#endif
