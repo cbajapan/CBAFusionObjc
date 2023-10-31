@@ -1,6 +1,6 @@
+//#if NSFoundationVersionNumber > 12
 #import <UIKit/UIKit.h>
 #import "UCClientTabbedViewController.h"
-#ifdef NSFoundationVersionNumber_iOS_13_0
 @import FCSDKiOS;
 
 API_AVAILABLE(ios(13))
@@ -20,4 +20,5 @@ API_AVAILABLE(ios(13))
 @property ACBUC *uc;
 
 @end
-#endif
+
+//#endif

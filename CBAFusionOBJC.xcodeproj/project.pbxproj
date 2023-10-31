@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		094B5BE12AF1047C00917240 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 094B5BE02AF1047C00917240 /* FCSDKiOS */; };
+		094B5BE42AF1297600917240 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 094B5BE32AF1297600917240 /* FCSDKiOS */; };
+		094B5BE72AF12C3800917240 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 094B5BE62AF12C3800917240 /* FCSDKiOS */; };
 		095736AF2934AD8E00E89194 /* AuthenticationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 095736AE2934AD8E00E89194 /* AuthenticationService.m */; };
 		095736B42934C15000E89194 /* NetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 095736B32934C15000E89194 /* NetworkMonitor.m */; };
 		0969F90E26AA50870001E08E /* Simulator.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0969F90D26AA50870001E08E /* Simulator.mp4 */; };
-		0997402A2A8B632200F3F8AF /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 099740292A8B632200F3F8AF /* FCSDKiOS */; };
 		09F853552A1C81EE00651724 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F853542A1C81EE00651724 /* Main.storyboard */; };
 		09F853572A1C81FE00651724 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F853562A1C81FE00651724 /* Default-568h@2x.png */; };
 		09F853592A1C820600651724 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F853582A1C820600651724 /* Media.xcassets */; };
@@ -86,7 +88,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0997402A2A8B632200F3F8AF /* FCSDKiOS in Frameworks */,
+				094B5BE42AF1297600917240 /* FCSDKiOS in Frameworks */,
+				094B5BE72AF12C3800917240 /* FCSDKiOS in Frameworks */,
+				094B5BE12AF1047C00917240 /* FCSDKiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +288,9 @@
 			);
 			name = CBAFusionOBJC;
 			packageProductDependencies = (
-				099740292A8B632200F3F8AF /* FCSDKiOS */,
+				094B5BE02AF1047C00917240 /* FCSDKiOS */,
+				094B5BE32AF1297600917240 /* FCSDKiOS */,
+				094B5BE62AF12C3800917240 /* FCSDKiOS */,
 			);
 			productName = ImPresenceSample;
 			productReference = 54F5AED416A76AD7008B1505 /* CBAFusionOBJC.app */;
@@ -296,8 +302,9 @@
 		54F5AECB16A76AD7008B1505 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = ImSample;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1500;
 				ORGANIZATIONNAME = AliceCallsBob;
 			};
 			buildConfigurationList = 54F5AECE16A76AD7008B1505 /* Build configuration list for PBXProject "CBAFusionOBJC" */;
@@ -310,7 +317,7 @@
 			);
 			mainGroup = 54F5AEC916A76AD7008B1505;
 			packageReferences = (
-				099740282A8B632200F3F8AF /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */,
+				094B5BE52AF12C3800917240 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */,
 			);
 			productRefGroup = 54F5AED516A76AD7008B1505 /* Products */;
 			projectDirPath = "";
@@ -407,6 +414,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -465,6 +473,7 @@
 				DEVELOPMENT_TEAM = 6SMQB2LH3S;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -511,7 +520,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "CBAFusionOBJC/CBAFusionOBJC-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_NO_PIE = NO;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -519,11 +528,10 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 4.2.5;
+				MARKETING_VERSION = 4.2.6;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = CBAFusionOBJC;
 				PRODUCT_NAME = CBAFusionOBJC;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -564,7 +572,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "CBAFusionOBJC/CBAFusionOBJC-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_NO_PIE = NO;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -572,11 +580,10 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 4.2.5;
+				MARKETING_VERSION = 4.2.6;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = CBAFusionOBJC;
 				PRODUCT_NAME = CBAFusionOBJC;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -613,20 +620,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		099740282A8B632200F3F8AF /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */ = {
+		094B5BE52AF12C3800917240 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/cbajapan/swift-fcsdk-ios";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = "4.2.6-beta10";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		099740292A8B632200F3F8AF /* FCSDKiOS */ = {
+		094B5BE02AF1047C00917240 /* FCSDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 099740282A8B632200F3F8AF /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */;
+			productName = FCSDKiOS;
+		};
+		094B5BE32AF1297600917240 /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FCSDKiOS;
+		};
+		094B5BE62AF12C3800917240 /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 094B5BE52AF12C3800917240 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */;
 			productName = FCSDKiOS;
 		};
 /* End XCSwiftPackageProductDependency section */

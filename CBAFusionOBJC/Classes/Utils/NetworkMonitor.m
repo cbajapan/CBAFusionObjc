@@ -89,7 +89,7 @@
 
 - (void) networkStatus:(NSNotification *) notification {
     BOOL status = notification.userInfo[@"satisfied"];
-    NSLog(@"STATUS_IS_SATISFIED? - %i", status);
+//    NSLog(@"STATUS_IS_SATISFIED? - %i", status);
     self.status = status;
 }
 

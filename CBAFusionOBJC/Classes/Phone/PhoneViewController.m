@@ -1,7 +1,9 @@
+
+//#if NSFoundationVersionNumber > 12
 #import "PhoneViewController.h"
 #import "AppSettings.h"
 #import <UserNotifications/UserNotifications.h>
-#ifdef NSFoundationVersionNumber_iOS_13_0
+
 @import FCSDKiOS;
 
 
@@ -24,7 +26,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
     bool videoEnabled;
     bool audioAllowed;
     bool videoAllowed;
-    NSUUID *callIdentifier;
+    NSString *callIdentifier;
     NSMutableArray *provAlerts;
     UIView *previewView;
     UILabel *callIDLabel;
@@ -68,7 +70,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
         [self.view addSubview:self->callIDLabel];
         [self.view bringSubviewToFront:self->callIDLabel];
         self.dialNumberField.delegate = self;
-        [self switchToNotInCallUI];
+//        [self switchToNotInCallUI];
         
         
         // Call starts unheld
@@ -83,7 +85,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
             self.audioSelectLbl.hidden=true;
         }
         
-        if (@available(iOS 15, *)) {} else {
+//        if (@available(iOS 15, *)) {} else {
             self->previewView = [self createVideoView];
             [self.view addSubview:self->previewView];
             [self.view bringSubviewToFront:self->previewView];
@@ -95,17 +97,16 @@ static NSString *const RINGTONE_FILE = @"ringring";
             [self->previewView.heightAnchor constraintEqualToConstant: 70].active = YES;
 
             //Please Use this Code to mirror the view if you are using FCSDKiOS 4.2.2
-            CGFloat xFactor = -1;
-            CGAffineTransform transform = self->previewView.transform;
-            transform = CGAffineTransformMakeScale(xFactor, 1);
-            self->previewView.transform = transform;
+//            CGFloat xFactor = -1;
+//            CGAffineTransform transform = self->previewView.transform;
+//            transform = CGAffineTransformMakeScale(xFactor, 1);
+//            self->previewView.transform = transform;
             
             // Hide the video view (remote caller) and call controls before call created
             [self.remoteVideoView setHidden:true];
-            
-            [self.uc.phone setPreviewView:self->previewView];
+            self.uc.phone.previewView = self->previewView;
             [self sharedViewSetupUI];
-        }
+//        }
     });
     completionHandler();
 }
@@ -206,17 +207,17 @@ static NSString *const RINGTONE_FILE = @"ringring";
                 [_call holdWithCompletionHandler:^{}];
                 self.isHeld = true;
                 [self.holdCallButton setTitle:@"Unhold" forState:UIControlStateNormal];
-                if (@available(iOS 15, *)) {} else {
+//                if (@available(iOS 15, *)) {} else {
                     [self.call.remoteView setHidden: true];
-                }
+//                }
                 
             } else {
                 [_call resumeWithCompletionHandler:^{}];
                 self.isHeld = false;
                 [self.holdCallButton setTitle:@"Hold" forState:UIControlStateNormal];
-                if (@available(iOS 15, *)) {} else {
+//                if (@available(iOS 15, *)) {} else {
                     [self.call.remoteView setHidden: false];
-                }
+//                }
             }
         }
     }
@@ -326,12 +327,12 @@ static NSString *const RINGTONE_FILE = @"ringring";
                 
                 // If successs, prepare UI
                 if (self.call != nil) {
-                    self->callIdentifier = [[NSUUID alloc] init];
-                    if (@available(iOS 15, *)) {
-                        [self setupBufferViews: self.call];
-                    } else {
+                    self->callIdentifier = self.call.callId;
+//                    if (@available(iOS 15, *)) {
+//                        [self setupBufferViews: self.call];
+//                    } else {
                         self.call.remoteView = self.remoteVideoView;
-                    }
+//                    }
                     [self setAudioEnabledState: self->audioAllowed];
                     [self setVideoEnabledState: self->videoAllowed];
                     [self switchToInCallUI];
@@ -352,24 +353,15 @@ static NSString *const RINGTONE_FILE = @"ringring";
 }
 
 - (void)answerIncomingCall {
+    ACBClientCall *newCall = self.lastIncomingCall;
+    self.call = newCall;
     [self setupPhone:^(void) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [(UITabBarController*)[self parentViewController] setSelectedIndex:0];
-        });
-        
-        ACBClientCall *newCall = self.lastIncomingCall;
-        self.call = newCall;
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (@available(iOS 15, *)) { } else {
-                self.call.remoteView = self.remoteVideoView;
-            }
-            [self switchToInCallUI];
-            [self requestMicrophoneAndCameraPermissionFromAppSettings];
-        });
-        
-        [newCall answerWithAudio:[AppSettings preferredAudioDirection] andVideo:[AppSettings preferredVideoDirection] completionHandler:^{}];
+        [self switchToInCallUI];
+        [self requestMicrophoneAndCameraPermissionFromAppSettings];
+        self.call.remoteView = self.remoteVideoView;
     }];
+    self->callIdentifier = self.call.callId;
+    [newCall answerWithAudio:[AppSettings preferredAudioDirection] andVideo:[AppSettings preferredVideoDirection] completionHandler:^{}];
 }
 
 - (void)setupBufferViews:(ACBClientCall *)call {
@@ -469,11 +461,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
 - (void) switchToInCallUI {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.dialPad setHidden:true];
-        [self->previewView setHidden:false];
-        
         [self.callQualityView setHidden:false];
-        [self.remoteVideoView setHidden:false];
-        
         [self.holdCallButton setEnabled: true];
     });
 }
@@ -518,10 +506,10 @@ static NSString *const RINGTONE_FILE = @"ringring";
     [self playRingtone];
     
     // We need to temporarily assign ourselves as the call's delegate so that we get notified if it ends before we answer it.
-    [call setDelegate:self];
-    if (@available(iOS 15, *)) {
-        [self setupBufferViews: call];
-    }
+    [call setDelegateWithCallDelegate:self completionHandler:^{}];
+//    if (@available(iOS 15, *)) {
+//        [self setupBufferViews: call];
+//    }
     
     if ([AppSettings shouldAutoAnswer]) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -545,19 +533,21 @@ static NSString *const RINGTONE_FILE = @"ringring";
         if (self.call) {
             if (_call.status == ACBClientCallStatusInCall) {
                 if (!self.isHeld) {
-                    [_call holdWithCompletionHandler:^{}];
-                    self.isHeld = true;
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.holdCallButton setTitle:@"Unhold" forState:UIControlStateNormal];
-                        if (@available(iOS 15, *)) {} else {
-                            [self.call.remoteView setHidden: true];
-                        }
-                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Holding call" message:@"Call was interrupted" preferredStyle:UIAlertControllerStyleAlert];
-                        UIAlertAction * continueButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){}];
-                        [alert addAction:continueButton];
-                        [self presentViewController:alert animated:YES completion:nil];
-                    });
+                    [_call holdWithCompletionHandler:^{
+                        
+                        self.isHeld = true;
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.holdCallButton setTitle:@"Unhold" forState:UIControlStateNormal];
+//                            if (@available(iOS 15, *)) {} else {
+                                [self.call.remoteView setHidden: true];
+//                            }
+                            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Holding call" message:@"Call was interrupted" preferredStyle:UIAlertControllerStyleAlert];
+                            UIAlertAction * continueButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){}];
+                            [alert addAction:continueButton];
+                            [self presentViewController:alert animated:YES completion:nil];
+                        });
+                    }];
                 }
             }
         }
@@ -610,11 +600,21 @@ static NSString *const RINGTONE_FILE = @"ringring";
             break;
         case ACBClientCallStatusMediaPending:
             break;
-        case ACBClientCallStatusInCall:
+        case ACBClientCallStatusPreparingBufferViews:
+            //            if (@available(iOS 15, *)) {
+            //                [self setupBufferViews: call];
+            //            }
+            break;
+        case ACBClientCallStatusInCall: {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.remoteVideoView setHidden: false];
+                [self->previewView setHidden: false];
+            });
             self.callid = call.callId;
             [self setLabel];
             [self stopRingingIfNoOtherCallIsRinging:nil];
             break;
+        }
         case ACBClientCallStatusEnded:
             if(callIdentifier != nil) {
                 [self.call endWithCompletionHandler:^{
@@ -624,6 +624,8 @@ static NSString *const RINGTONE_FILE = @"ringring";
                     [self updateUIForEndedCall:call];
                 }];
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.remoteVideoView setHidden: true];
+                    [self->previewView setHidden: true];
                     if ([self->provAlerts count] > 0) {
                         [self->provAlerts[0] dismissViewControllerAnimated:YES completion:nil];
                     }
@@ -656,8 +658,6 @@ static NSString *const RINGTONE_FILE = @"ringring";
                 [self.lastIncomingCall endWithCompletionHandler:^{}];
             }
             callIdentifier = nil;
-            break;
-        case ACBClientCallStatusPreparingBufferViews:
             break;
     }
     completionHandler();
@@ -826,8 +826,8 @@ static NSString *const RINGTONE_FILE = @"ringring";
 
 - (void) updateUIForEndedCall:(ACBClientCall *)call {
     if (call == self.lastIncomingCall) {
-        [self.lastIncomingCall removeLocalBufferViewWithCompletionHandler:^{}];
-        [self.lastIncomingCall removeBufferViewWithCompletionHandler:^{}];
+//        [self.lastIncomingCall removeLocalBufferViewWithCompletionHandler:^{}];
+//        [self.lastIncomingCall removeBufferViewWithCompletionHandler:^{}];
         self.lastIncomingCall = nil;
     }
     [self stopRingingIfNoOtherCallIsRinging:nil];
@@ -842,4 +842,5 @@ static NSString *const RINGTONE_FILE = @"ringring";
 }
 
 @end
-#endif
+
+//#endif

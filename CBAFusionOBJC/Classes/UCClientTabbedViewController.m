@@ -1,3 +1,4 @@
+//#if NSFoundationVersionNumber > 12
 #import "UCClientTabbedViewController.h"
 #import "AppDelegate.h"
 
@@ -63,3 +64,6 @@
 }
 
 @end
+
+
+//#endif

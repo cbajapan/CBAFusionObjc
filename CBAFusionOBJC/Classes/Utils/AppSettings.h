@@ -1,5 +1,6 @@
+//#if NSFoundationVersionNumber > 12
 #import <Foundation/Foundation.h>
-#ifdef NSFoundationVersionNumber_iOS_13_0
+
 @import FCSDKiOS;
 
 /**
@@ -16,4 +17,5 @@
 + (void) toggleAutoAnswer: (BOOL) enableAutoAnswer;
 
 @end
-#endif
+
+//#endif

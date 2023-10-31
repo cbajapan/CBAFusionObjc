@@ -1,9 +1,10 @@
+//#if NSFoundationVersionNumber > 12
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <AVFoundation/AVFoundation.h>
 #import "InCallQualityView.h"
 #import "UCClientTabbedViewController.h"
-#ifdef NSFoundationVersionNumber_iOS_13_0
+
 @import FCSDKiOS;
 
 API_AVAILABLE(ios(13))
@@ -56,4 +57,5 @@ API_AVAILABLE(ios(13))
 - (void) dial;
 
 @end
-#endif
+
+//#endif
