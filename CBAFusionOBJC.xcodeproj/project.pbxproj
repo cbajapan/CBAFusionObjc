@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		094B5BE12AF1047C00917240 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 094B5BE02AF1047C00917240 /* FCSDKiOS */; };
-		094B5BE42AF1297600917240 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 094B5BE32AF1297600917240 /* FCSDKiOS */; };
-		094B5BE72AF12C3800917240 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 094B5BE62AF12C3800917240 /* FCSDKiOS */; };
+		090879B32B9F1C9F00E2B831 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 090879B22B9F1C9F00E2B831 /* FCSDKiOS */; };
+		091342652C7D6A3F00EA5DE2 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 091342642C7D6A3F00EA5DE2 /* FCSDKiOS */; };
+		094051462C604E0D00C111E7 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 094051452C604E0D00C111E7 /* FCSDKiOS */; };
+		094582892BF19A5A005F9CCA /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 094582882BF19A5A005F9CCA /* FCSDKiOS */; };
+		094A183A2B1F44A400AF32ED /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 094A18392B1F44A400AF32ED /* FCSDKiOS */; };
+		09565C932C6B17980065469B /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09565C922C6B17980065469B /* FCSDKiOS */; };
 		095736AF2934AD8E00E89194 /* AuthenticationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 095736AE2934AD8E00E89194 /* AuthenticationService.m */; };
 		095736B42934C15000E89194 /* NetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 095736B32934C15000E89194 /* NetworkMonitor.m */; };
 		0969F90E26AA50870001E08E /* Simulator.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0969F90D26AA50870001E08E /* Simulator.mp4 */; };
+		0982BB972C5073B000F21088 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 0982BB962C5073B000F21088 /* FCSDKiOS */; };
+		09AE979A2C9D3C7D00037B09 /* AVPictureInPictureVideoCallViewController+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AE97992C9D3C7A00037B09 /* AVPictureInPictureVideoCallViewController+Convenience.m */; };
+		09C7A8CF2C99B3A400F666FC /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09C7A8CE2C99B3A400F666FC /* FCSDKiOS */; };
+		09D2C1AB2BB6F6C9005E005B /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09D2C1AA2BB6F6C9005E005B /* FCSDKiOS */; };
+		09E0015D2C17C3C400ABF2FD /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E0015C2C17C3C400ABF2FD /* FCSDKiOS */; };
+		09E1036B2C44B38300CB16D5 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E1036A2C44B38300CB16D5 /* FCSDKiOS */; };
+		09E55CD82BA30E3E006C35D1 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E55CD72BA30E3E006C35D1 /* FCSDKiOS */; };
+		09E55CDF2BA31324006C35D1 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E55CDE2BA31324006C35D1 /* FCSDKiOS */; };
+		09E55CE52BA3194F006C35D1 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E55CE42BA3194F006C35D1 /* FCSDKiOS */; };
+		09E55CF12BA5A0A6006C35D1 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E55CF02BA5A0A6006C35D1 /* FCSDKiOS */; };
 		09F853552A1C81EE00651724 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F853542A1C81EE00651724 /* Main.storyboard */; };
 		09F853572A1C81FE00651724 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F853562A1C81FE00651724 /* Default-568h@2x.png */; };
 		09F853592A1C820600651724 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F853582A1C820600651724 /* Media.xcassets */; };
@@ -50,6 +63,8 @@
 		095736B32934C15000E89194 /* NetworkMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkMonitor.m; sourceTree = "<group>"; };
 		095736B52934C19100E89194 /* NetworkMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkMonitor.h; sourceTree = "<group>"; };
 		0969F90D26AA50870001E08E /* Simulator.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Simulator.mp4; sourceTree = "<group>"; };
+		09AE97982C9D3C4C00037B09 /* AVPictureInPictureVideoCallViewController+Convenience.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVPictureInPictureVideoCallViewController+Convenience.h"; sourceTree = "<group>"; };
+		09AE97992C9D3C7A00037B09 /* AVPictureInPictureVideoCallViewController+Convenience.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVPictureInPictureVideoCallViewController+Convenience.m"; sourceTree = "<group>"; };
 		09F853542A1C81EE00651724 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = CBAFusionOBJC/Main.storyboard; sourceTree = "<group>"; };
 		09F853562A1C81FE00651724 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "CBAFusionOBJC/Default-568h@2x.png"; sourceTree = "<group>"; };
 		09F853582A1C820600651724 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = CBAFusionOBJC/Media.xcassets; sourceTree = "<group>"; };
@@ -88,9 +103,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				094B5BE42AF1297600917240 /* FCSDKiOS in Frameworks */,
-				094B5BE72AF12C3800917240 /* FCSDKiOS in Frameworks */,
-				094B5BE12AF1047C00917240 /* FCSDKiOS in Frameworks */,
+				090879B32B9F1C9F00E2B831 /* FCSDKiOS in Frameworks */,
+				09C7A8CF2C99B3A400F666FC /* FCSDKiOS in Frameworks */,
+				09E55CE52BA3194F006C35D1 /* FCSDKiOS in Frameworks */,
+				09E55CD82BA30E3E006C35D1 /* FCSDKiOS in Frameworks */,
+				09E55CDF2BA31324006C35D1 /* FCSDKiOS in Frameworks */,
+				091342652C7D6A3F00EA5DE2 /* FCSDKiOS in Frameworks */,
+				09E0015D2C17C3C400ABF2FD /* FCSDKiOS in Frameworks */,
+				09D2C1AB2BB6F6C9005E005B /* FCSDKiOS in Frameworks */,
+				09565C932C6B17980065469B /* FCSDKiOS in Frameworks */,
+				0982BB972C5073B000F21088 /* FCSDKiOS in Frameworks */,
+				09E1036B2C44B38300CB16D5 /* FCSDKiOS in Frameworks */,
+				09E55CF12BA5A0A6006C35D1 /* FCSDKiOS in Frameworks */,
+				094582892BF19A5A005F9CCA /* FCSDKiOS in Frameworks */,
+				094051462C604E0D00C111E7 /* FCSDKiOS in Frameworks */,
+				094A183A2B1F44A400AF32ED /* FCSDKiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +269,8 @@
 		843900C41E5C5C0600A7208D /* Phone */ = {
 			isa = PBXGroup;
 			children = (
+				09AE97992C9D3C7A00037B09 /* AVPictureInPictureVideoCallViewController+Convenience.m */,
+				09AE97982C9D3C4C00037B09 /* AVPictureInPictureVideoCallViewController+Convenience.h */,
 				843900D51E5C5E2C00A7208D /* PhoneViewController.h */,
 				843900D61E5C5E2C00A7208D /* PhoneViewController.m */,
 				DE7CF96A1863476400EE2AE7 /* ACBVideoCaptureSetting+UI.h */,
@@ -288,9 +317,21 @@
 			);
 			name = CBAFusionOBJC;
 			packageProductDependencies = (
-				094B5BE02AF1047C00917240 /* FCSDKiOS */,
-				094B5BE32AF1297600917240 /* FCSDKiOS */,
-				094B5BE62AF12C3800917240 /* FCSDKiOS */,
+				094A18392B1F44A400AF32ED /* FCSDKiOS */,
+				090879B22B9F1C9F00E2B831 /* FCSDKiOS */,
+				09E55CD72BA30E3E006C35D1 /* FCSDKiOS */,
+				09E55CDE2BA31324006C35D1 /* FCSDKiOS */,
+				09E55CE42BA3194F006C35D1 /* FCSDKiOS */,
+				09E55CF02BA5A0A6006C35D1 /* FCSDKiOS */,
+				09D2C1AA2BB6F6C9005E005B /* FCSDKiOS */,
+				094582882BF19A5A005F9CCA /* FCSDKiOS */,
+				09E0015C2C17C3C400ABF2FD /* FCSDKiOS */,
+				09E1036A2C44B38300CB16D5 /* FCSDKiOS */,
+				0982BB962C5073B000F21088 /* FCSDKiOS */,
+				094051452C604E0D00C111E7 /* FCSDKiOS */,
+				09565C922C6B17980065469B /* FCSDKiOS */,
+				091342642C7D6A3F00EA5DE2 /* FCSDKiOS */,
+				09C7A8CE2C99B3A400F666FC /* FCSDKiOS */,
 			);
 			productName = ImPresenceSample;
 			productReference = 54F5AED416A76AD7008B1505 /* CBAFusionOBJC.app */;
@@ -304,7 +345,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = ImSample;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 				ORGANIZATIONNAME = AliceCallsBob;
 			};
 			buildConfigurationList = 54F5AECE16A76AD7008B1505 /* Build configuration list for PBXProject "CBAFusionOBJC" */;
@@ -317,7 +358,7 @@
 			);
 			mainGroup = 54F5AEC916A76AD7008B1505;
 			packageReferences = (
-				094B5BE52AF12C3800917240 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */,
+				09C7A8CD2C99B3A400F666FC /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */,
 			);
 			productRefGroup = 54F5AED516A76AD7008B1505 /* Products */;
 			projectDirPath = "";
@@ -359,6 +400,7 @@
 				1E730E5016C55F2300ABE50E /* LoginViewController.m in Sources */,
 				1E730E5116C55F2300ABE50E /* UCClientTabbedViewController.m in Sources */,
 				D5C6850018BBB5F900726475 /* InCallQualityView.m in Sources */,
+				09AE979A2C9D3C7D00037B09 /* AVPictureInPictureVideoCallViewController+Convenience.m in Sources */,
 				DE3F5E261D95629E001FB7B3 /* AppSettings.m in Sources */,
 				280B233416E8F085004C25B9 /* AEDViewController.m in Sources */,
 				843900D71E5C5E2C00A7208D /* PhoneViewController.m in Sources */,
@@ -382,8 +424,8 @@
 		54F5AEF916A76AD7008B1505 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -442,8 +484,8 @@
 		54F5AEFA16A76AD7008B1505 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -495,7 +537,6 @@
 		54F5AEFC16A76AD7008B1505 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -505,9 +546,9 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6SMQB2LH3S;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = armv7;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
@@ -520,7 +561,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "CBAFusionOBJC/CBAFusionOBJC-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_NO_PIE = NO;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -528,10 +569,11 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 4.2.6;
+				MARKETING_VERSION = 4.3.4;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cba-japan.CBAFusionOBJC";
 				PRODUCT_NAME = CBAFusionOBJC;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -546,7 +588,6 @@
 		54F5AEFD16A76AD7008B1505 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -556,9 +597,9 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6SMQB2LH3S;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				EXCLUDED_ARCHS = armv7;
@@ -572,7 +613,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "CBAFusionOBJC/CBAFusionOBJC-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_NO_PIE = NO;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -580,10 +621,11 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 4.2.6;
+				MARKETING_VERSION = 4.3.4;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cba-japan.CBAFusionOBJC";
 				PRODUCT_NAME = CBAFusionOBJC;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -620,28 +662,76 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		094B5BE52AF12C3800917240 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */ = {
+		09C7A8CD2C99B3A400F666FC /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/cbajapan/swift-fcsdk-ios";
+			repositoryURL = "https://github.com/cbajapan/swift-fcsdk-ios.git";
 			requirement = {
 				kind = exactVersion;
-				version = "4.2.6-beta10";
+				version = "4.3.4-beta1";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		094B5BE02AF1047C00917240 /* FCSDKiOS */ = {
+		090879B22B9F1C9F00E2B831 /* FCSDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FCSDKiOS;
 		};
-		094B5BE32AF1297600917240 /* FCSDKiOS */ = {
+		091342642C7D6A3F00EA5DE2 /* FCSDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FCSDKiOS;
 		};
-		094B5BE62AF12C3800917240 /* FCSDKiOS */ = {
+		094051452C604E0D00C111E7 /* FCSDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 094B5BE52AF12C3800917240 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */;
+			productName = FCSDKiOS;
+		};
+		094582882BF19A5A005F9CCA /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FCSDKiOS;
+		};
+		094A18392B1F44A400AF32ED /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FCSDKiOS;
+		};
+		09565C922C6B17980065469B /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FCSDKiOS;
+		};
+		0982BB962C5073B000F21088 /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FCSDKiOS;
+		};
+		09C7A8CE2C99B3A400F666FC /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09C7A8CD2C99B3A400F666FC /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */;
+			productName = FCSDKiOS;
+		};
+		09D2C1AA2BB6F6C9005E005B /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FCSDKiOS;
+		};
+		09E0015C2C17C3C400ABF2FD /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FCSDKiOS;
+		};
+		09E1036A2C44B38300CB16D5 /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FCSDKiOS;
+		};
+		09E55CD72BA30E3E006C35D1 /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FCSDKiOS;
+		};
+		09E55CDE2BA31324006C35D1 /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FCSDKiOS;
+		};
+		09E55CE42BA3194F006C35D1 /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FCSDKiOS;
+		};
+		09E55CF02BA5A0A6006C35D1 /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
 			productName = FCSDKiOS;
 		};
 /* End XCSwiftPackageProductDependency section */

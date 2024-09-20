@@ -69,7 +69,7 @@
 
 - (void)restoreSavedFieldValues {
     self.versionField.text = Constants.SDK_VERSION_NUMBER;
-    
+    Constants.WEBSOCKET_CONNECTION_TIMEOUT = 20.0;
     self.userNameField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     self.passwordField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
     self.serverField.text   = [[NSUserDefaults standardUserDefaults] objectForKey:@"server"];

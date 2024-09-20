@@ -4,12 +4,12 @@
 #import <AVFoundation/AVFoundation.h>
 #import "InCallQualityView.h"
 #import "UCClientTabbedViewController.h"
-
+#import "AVKit/AVKit.h"
 @import FCSDKiOS;
 
 API_AVAILABLE(ios(13))
 @interface PhoneViewController : UIViewController
-    <UCConsumer, ACBClientPhoneDelegate, ACBClientCallDelegate, UITextFieldDelegate>
+    <UCConsumer, ACBClientPhoneDelegate, ACBClientCallDelegate, UITextFieldDelegate, AVPictureInPictureControllerDelegate, AVPictureInPictureSampleBufferPlaybackDelegate>
 
 @property BOOL audio;
 @property BOOL video;
@@ -23,7 +23,10 @@ API_AVAILABLE(ios(13))
 @property NSString *lastNumber;
 @property AVAudioSession *audioSession;
 @property NSString *callid;
-
+@property AVCaptureSession * captureSession;
+@property (nonatomic, strong) AVPictureInPictureController *pipController;
+@property UIView *pipBufferView;
+@property (nonatomic, assign) BOOL isPipActive;
 @property (weak, nonatomic) ACBClientCall *lastIncomingCall;
 @property ACBVideoCaptureSetting* selectedQuality;
 

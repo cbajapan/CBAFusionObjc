@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23090" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23079"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -238,22 +238,22 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="3UE-vK-QTz"/>
-                                <exclude reference="DwJ-ja-tvc"/>
-                                <exclude reference="kjz-S2-tqm"/>
                                 <exclude reference="zDV-Df-kdR"/>
+                                <exclude reference="kjz-S2-tqm"/>
+                                <exclude reference="DwJ-ja-tvc"/>
+                                <exclude reference="3UE-vK-QTz"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="constraints">
-                                <include reference="DwJ-ja-tvc"/>
                                 <include reference="kjz-S2-tqm"/>
+                                <include reference="DwJ-ja-tvc"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
                             <mask key="constraints">
-                                <include reference="3UE-vK-QTz"/>
                                 <include reference="zDV-Df-kdR"/>
+                                <include reference="3UE-vK-QTz"/>
                             </mask>
                         </variation>
                     </view>
@@ -1019,6 +1019,15 @@
                                         <state key="normal" backgroundImage="endcall"/>
                                         <connections>
                                             <action selector="pressEndCall:" destination="vCt-OS-GwL" eventType="touchUpInside" id="BrV-co-YwT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7e-Nj-k12">
+                                        <rect key="frame" x="266" y="6" width="49" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="PiP"/>
+                                        <connections>
+                                            <action selector="pipTapped:" destination="vCt-OS-GwL" eventType="touchUpInside" id="yOb-kd-irc"/>
                                         </connections>
                                     </button>
                                 </subviews>
