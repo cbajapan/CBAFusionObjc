@@ -11,7 +11,7 @@
 #ifndef AuthenticationService_h
 #define AuthenticationService_h
 @import FCSDKiOS;
-@interface AuthenticationService : NSObject<ACBUCDelegate, NSURLSessionDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate, ACBClientPhoneDelegate>
+@interface AuthenticationService : NSObject<ACBUCDelegate, NSURLSessionDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate>
 
 - (void)createSession:(NSString*)sessionId status:(BOOL)networkStatus;
 - (void)loginUser:(BOOL)networkStatus;
