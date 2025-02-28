@@ -180,25 +180,30 @@ static NSString *const RINGTONE_FILE = @"ringring";
 #pragma mark - quality
 
 - (void) configureResolutionOptions {
-    __block BOOL showResolutionChoice720 = false;
-    __block BOOL showResolutionChoice480 = false;
-    typeof(self) __weak weakSelf = self;
-    
-    [self->uc.phone recommendedCaptureSettingsWithCompletionHandler:^(NSArray<ACBVideoCaptureSetting*>* recCaptureSettings) {
-        for(ACBVideoCaptureSetting* captureSetting in recCaptureSettings) {
-            if(captureSetting.resolution == ACBVideoCaptureResolution1280x720) {
-                showResolutionChoice720 = true;
-                showResolutionChoice480 = true;
-            } else if(captureSetting.resolution == ACBVideoCaptureResolution640x480) {
-                showResolutionChoice480 = true;
-            }
-        } if(!showResolutionChoice720) {
-            [weakSelf.resolutionControl setEnabled:false forSegmentAtIndex:3];
-            
-        } if(!showResolutionChoice480) {
-            [weakSelf.resolutionControl setEnabled:false forSegmentAtIndex:2];
-        }
-    }];
+//    __block BOOL showResolutionChoice720 = false;
+//    __block BOOL showResolutionChoice480 = false;
+//    typeof(self) __weak weakSelf = self;
+    [self->uc.phone setPreferredCaptureResolution:ACBVideoCaptureResolution640x480];
+    [self->uc.phone setPreferredCaptureFrameRate: 30];
+//    [self->uc.phone recommendedCaptureSettingsWithCompletionHandler:^(NSArray<ACBVideoCaptureSetting*>* recCaptureSettings) {
+//        for(ACBVideoCaptureSetting* captureSetting in recCaptureSettings) {
+//            if(captureSetting.resolution == ACBVideoCaptureResolution1280x720) {
+//                showResolutionChoice720 = true;
+//                showResolutionChoice480 = true;
+//            } else if(captureSetting.resolution == ACBVideoCaptureResolution640x480) {
+//                showResolutionChoice480 = true;
+//            }
+//        } if(!showResolutionChoice720) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [weakSelf.resolutionControl setEnabled:false forSegmentAtIndex:3];
+//            });
+//            
+//        } if(!showResolutionChoice480) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//            [weakSelf.resolutionControl setEnabled:false forSegmentAtIndex:2];
+//            });
+//        }
+//    }];
     
 }
 
@@ -395,7 +400,8 @@ static NSString *const RINGTONE_FILE = @"ringring";
 
 - (IBAction)pipTapped:(UIButton *)sender {
     self.isPipActive = !self.isPipActive;
-    [self showPip:_isPipActive];
+    [self showPipVideoCallController:_isPipActive];
+//    [self showPipContentSource:_isPipActive];
 }
 
 
@@ -578,8 +584,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
     [self playRingtone];
     
     // We need to temporarily assign ourselves as the call's delegate so that we get notified if it ends before we answer it.
-    [call setDelegateWithCallDelegate:self completionHandler:^{}];
-    
+    [call setDelegate: self];
     if ([AppSettings shouldAutoAnswer]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.callControls setHidden:NO];
@@ -707,14 +712,13 @@ static NSString *const RINGTONE_FILE = @"ringring";
         case ACBClientCallStatusMediaPending:
             break;
         case ACBClientCallStatusPreparingBufferViews:
+//            break;
             if (@available(iOS 15, *)) {
                 [call captureSessionWithCompletionHandler:^(AVCaptureSession * session) {
                     self.captureSession = session;
                 }];
-            } else {
-                break;
             }
-                        [self setUpBufferView:call];
+            [self setUpBufferView:call];
         case ACBClientCallStatusInCall: {
             if (@available(iOS 15, *)) {} else {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -1043,84 +1047,100 @@ static NSString *const RINGTONE_FILE = @"ringring";
 }
 
 #pragma mark - PiP
-- (void)showPip:(BOOL)show {
-    if (![AVPictureInPictureController isPictureInPictureSupported]) {
-        NSLog(@"PIP not Supported");
-        return;
-    }
-
-        if (show) {
-            if (@available(iOS 16.0, *)) {
-                if (self->_captureSession.isMultitaskingCameraAccessSupported) {
-                    NSLog(@"Multitasking Camera is Supported");
-                    
-                    CGSize size = [self determineSizeForOrientation:UIDevice.currentDevice.orientation minimize:NO];
-                    AVPictureInPictureVideoCallViewController *pipVideoCallViewController = [[AVPictureInPictureVideoCallViewController alloc] initWithPipView: remoteView preferredContentSize: size];
-                    AVPictureInPictureControllerContentSource *contentSource = [[AVPictureInPictureControllerContentSource alloc] initWithActiveVideoCallSourceView:self.view contentViewController:pipVideoCallViewController];
-                    AVPictureInPictureController *pipController = [[AVPictureInPictureController alloc] initWithContentSource:contentSource];
-                    typeof(self) __weak weakSelf = self;
-                    
-                    [self.call setPipController:self->_pipController completionHandler:^{
-                        NSLog(@"Set PIP");
-                        pipController.delegate = weakSelf;
-                        pipController.canStartPictureInPictureAutomaticallyFromInline = YES;
-                        [pipController startPictureInPicture];
-                        weakSelf.pipController = pipController;
-                    }];
-                } else {
-                    NSLog(@"Multitasking Camera is not Supported");
-                    if (!self.pipController) {
-                        AVSampleBufferDisplayLayer *sampleBufferLayer = remoteView.sampleBufferLayer;
-                        if (!sampleBufferLayer) return;
-
-                        // Ensure that we are on the main thread
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            // Create the content source for PiP
-                            AVPictureInPictureControllerContentSource *source = [[AVPictureInPictureControllerContentSource alloc] initWithSampleBufferDisplayLayer:sampleBufferLayer playbackDelegate:self];
-                            
-                            // Initialize the PiP controller
-                            AVPictureInPictureController *pipController = [[AVPictureInPictureController alloc] initWithContentSource:source];
-                            pipController.canStartPictureInPictureAutomaticallyFromInline = YES;
-                            pipController.delegate = self;
-
-                            // Check if PiP is already active
-                            if (pipController.isPictureInPictureActive) {
-                                // Stop PiP if it is already active
-                                [pipController stopPictureInPicture];
-                            }
-
-                            // Start Picture in Picture
-                          
-
-                            // Set the PiP controller in your call object
-                            [self->_call setPipController:self->_pipController completionHandler:^{
-                                // Handle completion if needed
-                                NSLog(@"PiP controller set successfully.");
-                                [pipController startPictureInPicture];
-                                self->_pipController = pipController;
-                            }];
-                        });
-                    } else {
-                        // Set the PiP controller in your call object
-                        __weak typeof(self) weakSelf = self; // Create a weak reference to self
-                        [self->_call setPipController:self->_pipController completionHandler:^{
-                            // Use weakSelf instead of self to avoid retain cycle
-                            __strong typeof(weakSelf) strongSelf = weakSelf; // Create a strong reference to self within the block
-                            if (strongSelf) {
-                                // Handle completion if needed
-                                NSLog(@"PiP controller set successfully.");
-                                [strongSelf->_pipController startPictureInPicture];
-                            }
-                        }];
-                        // Start Picture in Picture again
-                    }
-                }
-            }
-        } else {
-            // Stop Picture in Picture
-            [self.pipController stopPictureInPicture];
+     
+     - (void)showPipVideoCallController:(BOOL)show {
+        if (![AVPictureInPictureController isPictureInPictureSupported]) {
+            NSLog(@"PIP not Supported");
+            return;
         }
-}
+        
+         if (!show) {
+             [self.pipController stopPictureInPicture];
+             self.pipController.delegate = self;
+             return;
+         }
+
+         if (@available(iOS 15.0, *)) {
+             CGSize size = [self determineSizeForOrientation:UIDevice.currentDevice.orientation minimize:NO];
+             
+             // Initialize the Picture in Picture Video Call View Controller
+             AVPictureInPictureVideoCallViewController *pipVideoCallViewController =
+                 [[AVPictureInPictureVideoCallViewController alloc] initWithPipView:self->previewView preferredContentSize:size];
+             
+             // Create the content source for the PIP controller
+             AVPictureInPictureControllerContentSource *contentSource =
+                 [[AVPictureInPictureControllerContentSource alloc] initWithActiveVideoCallSourceView:self.view contentViewController:pipVideoCallViewController];
+             
+             // Initialize the PIP controller
+             AVPictureInPictureController *pipController = [[AVPictureInPictureController alloc] initWithContentSource:contentSource];
+             
+             // Use a weak reference to self to avoid retain cycles
+             __weak typeof(self) weakSelf = self;
+             
+             // Set the PIP controller and start PIP
+             [self.call setPipController:self->_pipController completionHandler:^{
+                 NSLog(@"Set PIP");
+                 pipController.delegate = weakSelf;
+                 pipController.canStartPictureInPictureAutomaticallyFromInline = YES;
+                 [pipController startPictureInPicture];
+                 weakSelf.pipController = pipController;
+             }];
+         }
+     }
+
+     
+     - (void)showPipContentSource:(BOOL)show {
+         // Check if Picture-in-Picture is supported
+         if (![AVPictureInPictureController isPictureInPictureSupported]) {
+             NSLog(@"PIP not Supported");
+             return;
+         }
+
+         if (@available(iOS 15.0, *)) {
+             // Handle showing or stopping PiP
+             if (show) {
+                 NSLog(@"Multitasking Camera is not Supported");
+                 AVSampleBufferDisplayLayer *sampleBufferLayer = remoteView.sampleBufferLayer;
+                 if (!sampleBufferLayer) return;
+
+                 // Ensure that we are on the main thread
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     // Create the content source for PiP
+                     AVPictureInPictureControllerContentSource *source = [[AVPictureInPictureControllerContentSource alloc] initWithSampleBufferDisplayLayer:sampleBufferLayer playbackDelegate:self];
+                     
+                     // Initialize the PiP controller if it doesn't exist
+                     if (!self.pipController) {
+                         self.pipController = [[AVPictureInPictureController alloc] initWithContentSource:source];
+                         self.pipController.canStartPictureInPictureAutomaticallyFromInline = YES;
+                     } else {
+                         // If PiP is already active, stop it before reusing the controller
+                         if (self.pipController.isPictureInPictureActive) {
+                             [self.pipController stopPictureInPicture];
+                         }
+                         // Update the content source if reusing the controller
+                         [self.pipController setContentSource:source];
+                     }
+
+                     // Set the PiP controller in your call object
+                     __weak typeof(self) weakSelf = self;
+                     [self->_call setPipController:self.pipController completionHandler:^{
+                         __strong typeof(weakSelf) strongSelf = weakSelf;
+                         if (strongSelf) {
+                             NSLog(@"PiP controller set successfully. %@", strongSelf.pipController.delegate);
+                             [strongSelf.pipController startPictureInPicture];
+                         }
+                     }];
+                 });
+             } else {
+                 // Stop Picture in Picture if not showing
+                 if (self.pipController.isPictureInPictureActive) {
+                     [self.pipController stopPictureInPicture];
+                 }
+             }
+         }
+     }
+
+
 
 - (CGSize)determineSizeForOrientation:(UIDeviceOrientation)orientation minimize:(BOOL)minimize {
     CGFloat width = 0;
@@ -1243,7 +1263,17 @@ static NSString *const RINGTONE_FILE = @"ringring";
 
 
 -(void) pictureInPictureControllerWillStopPictureInPicture:(AVPictureInPictureController *)pictureInPictureController {
-    
+        [self->remoteView addSubview:self->previewView];
+        [self->remoteView bringSubviewToFront:self->previewView];
+        
+        self->previewView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self->previewView.topAnchor constraintEqualToAnchor:self.callControls.bottomAnchor constant:8].active = YES;
+        [self->previewView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-8].active = YES;
+        [self->previewView.widthAnchor constraintEqualToConstant:70].active = YES;
+        [self->previewView.heightAnchor constraintEqualToConstant:70].active = YES;
+        
+        UITapGestureRecognizer *previewTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(previewWasTapped:)];
+        [self->previewView addGestureRecognizer:previewTapRecognizer];
 }
 
 - (void)encodeWithCoder:(nonnull NSCoder *)coder {
