@@ -7,7 +7,6 @@
 //
 //
 
-//#if NSFoundationVersionNumber > 12
 #ifndef AuthenticationService_h
 #define AuthenticationService_h
 @import FCSDKiOS;
@@ -18,5 +17,4 @@
 - (void)logout;
 
 @end
-//#endif
 #endif /* AuthenticationService_h */

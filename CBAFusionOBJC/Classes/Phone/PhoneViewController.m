@@ -404,6 +404,18 @@ static NSString *const RINGTONE_FILE = @"ringring";
 //    [self showPipContentSource:_isPipActive];
 }
 
+- (IBAction)pipSelectorOptions:(UISegmentedControl *)sender {
+    if(sender.selectedSegmentIndex == 0) {
+        NSLog(@"Selected Remote Video For PiP Controller");
+        [[NSUserDefaults standardUserDefaults] setObject:@"remote" forKey:@"PIPViewSelected"];
+    } else if(sender.selectedSegmentIndex == 1) {
+        NSLog(@"Selected Local Video For PiP Controller");
+        [[NSUserDefaults standardUserDefaults] setObject:@"local" forKey:@"PIPViewSelected"];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
 
 #pragma mark - CameraOptions
 
@@ -680,8 +692,8 @@ static NSString *const RINGTONE_FILE = @"ringring";
         [call localBufferViewWithCompletionHandler:^(UIView *preview) {
             if (preview) {
                 self->previewView = preview;
-                [self->remoteView addSubview:self->previewView];
-                [self->remoteView bringSubviewToFront:self->previewView];
+                [self.view addSubview:self->previewView];
+                [self.view bringSubviewToFront:self->previewView];
                 
                 self->previewView.translatesAutoresizingMaskIntoConstraints = NO;
                 [self->previewView.topAnchor constraintEqualToAnchor:self.callControls.bottomAnchor constant:8].active = YES;
@@ -712,7 +724,6 @@ static NSString *const RINGTONE_FILE = @"ringring";
         case ACBClientCallStatusMediaPending:
             break;
         case ACBClientCallStatusPreparingBufferViews:
-//            break;
             if (@available(iOS 15, *)) {
                 [call captureSessionWithCompletionHandler:^(AVCaptureSession * session) {
                     self.captureSession = session;
@@ -941,16 +952,20 @@ static NSString *const RINGTONE_FILE = @"ringring";
 }
 
 - (void)setBadgeCount:(NSInteger)count {
-    [[UNUserNotificationCenter currentNotificationCenter] setBadgeCount:count withCompletionHandler:^(NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error setting badge count: %@", error.localizedDescription);
-        } else {
-            // Store the badge count in UserDefaults
-            [[NSUserDefaults standardUserDefaults] setInteger:count forKey:@"badgeCount"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            NSLog(@"Badge count updated to %ld", (long)count);
-        }
-    }];
+    if (@available(iOS 16.0, *)) {
+        [[UNUserNotificationCenter currentNotificationCenter] setBadgeCount:count withCompletionHandler:^(NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Error setting badge count: %@", error.localizedDescription);
+            } else {
+                // Store the badge count in UserDefaults
+                [[NSUserDefaults standardUserDefaults] setInteger:count forKey:@"badgeCount"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                NSLog(@"Badge count updated to %ld", (long)count);
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
 }
 
 - (void) presentIncomingCallAlertForCall:(ACBClientCall*)call {
@@ -977,13 +992,17 @@ static NSString *const RINGTONE_FILE = @"ringring";
 
                     // Get the current badge count
                     NSInteger currentBadgeCount = [self getCurrentBadgeCount];
-                    [center setBadgeCount:currentBadgeCount withCompletionHandler:^(NSError * _Nullable error) {
-                        if (error) {
-                            NSLog(@"Error setting badge count: %@", error.localizedDescription);
-                        } else {
-                            NSLog(@"Badge count updated to %ld", (long)newBadgeCount);
-                        }
-                    }];
+                    if (@available(iOS 16.0, *)) {
+                        [center setBadgeCount:currentBadgeCount withCompletionHandler:^(NSError * _Nullable error) {
+                            if (error) {
+                                NSLog(@"Error setting badge count: %@", error.localizedDescription);
+                            } else {
+                                NSLog(@"Badge count updated to %ld", (long)newBadgeCount);
+                            }
+                        }];
+                    } else {
+                        // Fallback on earlier versions
+                    }
                 }
             }];
             
@@ -1060,12 +1079,22 @@ static NSString *const RINGTONE_FILE = @"ringring";
              return;
          }
 
+         NSString *pipViewSelected = [[NSUserDefaults standardUserDefaults] objectForKey:@"PIPViewSelected"];
+         
          if (@available(iOS 15.0, *)) {
              CGSize size = [self determineSizeForOrientation:UIDevice.currentDevice.orientation minimize:NO];
              
+             UIView *pipView;
+             NSLog(@"SELECETED %@", pipViewSelected);
+             if ([pipViewSelected isEqualToString:@"local"]) {
+                 pipView = self->previewView;
+             } else {
+                 pipView = self->remoteView;
+             }
+             
              // Initialize the Picture in Picture Video Call View Controller
              AVPictureInPictureVideoCallViewController *pipVideoCallViewController =
-                 [[AVPictureInPictureVideoCallViewController alloc] initWithPipView:self->previewView preferredContentSize:size];
+                 [[AVPictureInPictureVideoCallViewController alloc] initWithPipView:pipView preferredContentSize:size];
              
              // Create the content source for the PIP controller
              AVPictureInPictureControllerContentSource *contentSource =
@@ -1095,11 +1124,10 @@ static NSString *const RINGTONE_FILE = @"ringring";
              NSLog(@"PIP not Supported");
              return;
          }
-
+         
          if (@available(iOS 15.0, *)) {
              // Handle showing or stopping PiP
              if (show) {
-                 NSLog(@"Multitasking Camera is not Supported");
                  AVSampleBufferDisplayLayer *sampleBufferLayer = remoteView.sampleBufferLayer;
                  if (!sampleBufferLayer) return;
 
@@ -1263,17 +1291,26 @@ static NSString *const RINGTONE_FILE = @"ringring";
 
 
 -(void) pictureInPictureControllerWillStopPictureInPicture:(AVPictureInPictureController *)pictureInPictureController {
-        [self->remoteView addSubview:self->previewView];
-        [self->remoteView bringSubviewToFront:self->previewView];
-        
-        self->previewView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self->previewView.topAnchor constraintEqualToAnchor:self.callControls.bottomAnchor constant:8].active = YES;
-        [self->previewView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-8].active = YES;
-        [self->previewView.widthAnchor constraintEqualToConstant:70].active = YES;
-        [self->previewView.heightAnchor constraintEqualToConstant:70].active = YES;
-        
-        UITapGestureRecognizer *previewTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(previewWasTapped:)];
-        [self->previewView addGestureRecognizer:previewTapRecognizer];
+    
+    [self.view addSubview:self->remoteView];
+    
+    [self->remoteView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
+    [self->remoteView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
+    [self->remoteView.bottomAnchor constraintEqualToAnchor:self.callControls.topAnchor].active = YES;
+    [self->remoteView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
+    
+    [self.view addSubview:self->previewView];
+    [self.view bringSubviewToFront:self->previewView];
+    
+    self->previewView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self->previewView.topAnchor constraintEqualToAnchor:self.callControls.bottomAnchor constant:8].active = YES;
+    [self->previewView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-8].active = YES;
+    [self->previewView.widthAnchor constraintEqualToConstant:70].active = YES;
+    [self->previewView.heightAnchor constraintEqualToConstant:70].active = YES;
+    
+    UITapGestureRecognizer *previewTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(previewWasTapped:)];
+    [self->previewView addGestureRecognizer:previewTapRecognizer];
 }
 
 - (void)encodeWithCoder:(nonnull NSCoder *)coder {

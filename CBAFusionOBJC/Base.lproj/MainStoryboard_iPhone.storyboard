@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23090" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23079"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -812,7 +812,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="451"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lhg-YO-zUI">
-                                        <rect key="frame" x="19" y="246" width="337" height="187"/>
+                                        <rect key="frame" x="19" y="207" width="337" height="226"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-8C-1xO">
                                                 <rect key="frame" x="0.0" y="0.0" width="337" height="31"/>
@@ -906,7 +906,7 @@
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M0v-0t-bcc" userLabel="framerateOptions">
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ddR-Ub-gT7" userLabel="framerateOptions">
                                                         <rect key="frame" x="98" y="0.0" width="239" height="32"/>
                                                         <color key="backgroundColor" cyan="0.69999999999999996" magenta="0.0" yellow="0.20000000000000001" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                                         <segments>
@@ -920,16 +920,41 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="framerateControlChanged:" destination="vCt-OS-GwL" eventType="valueChanged" id="Y5c-QP-8PD"/>
+                                                            <action selector="framerateControlChanged:" destination="vCt-OS-GwL" eventType="valueChanged" id="dmv-W9-weg"/>
                                                         </connections>
                                                     </segmentedControl>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="M0v-0t-bcc" firstAttribute="leading" secondItem="ZgF-RG-2tD" secondAttribute="trailing" constant="16" id="13N-Vi-SIs"/>
-                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pAf-cA-xK5">
+                                                <rect key="frame" x="0.0" y="156" width="337" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="PiP View Selector" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNc-t0-oiK" userLabel="pipSelectorLabel">
+                                                        <rect key="frame" x="0.0" y="0.0" width="139.5" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M0v-0t-bcc" userLabel="pipSelectorOptions">
+                                                        <rect key="frame" x="155.5" y="0.0" width="181.5" height="32"/>
+                                                        <color key="backgroundColor" cyan="0.69999999999999996" magenta="0.0" yellow="0.20000000000000001" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                                        <segments>
+                                                            <segment title="Remote View"/>
+                                                            <segment title="Local View"/>
+                                                        </segments>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="4"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="pipSelectorOptions:" destination="vCt-OS-GwL" eventType="valueChanged" id="rpl-6q-4pR"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5Yk-rv-OqR">
-                                                <rect key="frame" x="0.0" y="156" width="337" height="31"/>
+                                                <rect key="frame" x="0.0" y="195" width="337" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto-Answer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhV-XQ-8hN">
                                                         <rect key="frame" x="0.0" y="0.0" width="272" height="31"/>
@@ -948,7 +973,9 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="pAf-cA-xK5" secondAttribute="trailing" id="00e-Zm-5sA"/>
                                             <constraint firstItem="thr-fJ-Jhj" firstAttribute="leading" secondItem="Lhg-YO-zUI" secondAttribute="leading" id="7B6-fx-Tfr"/>
+                                            <constraint firstItem="pAf-cA-xK5" firstAttribute="leading" secondItem="Lhg-YO-zUI" secondAttribute="leading" id="Ts7-UQ-lei"/>
                                             <constraint firstItem="1nh-8C-1xO" firstAttribute="leading" secondItem="Lhg-YO-zUI" secondAttribute="leading" id="c6E-bS-ovL"/>
                                             <constraint firstItem="5Yk-rv-OqR" firstAttribute="leading" secondItem="Lhg-YO-zUI" secondAttribute="leading" id="jfh-sj-P8k"/>
                                             <constraint firstAttribute="trailing" secondItem="thr-fJ-Jhj" secondAttribute="trailing" id="orK-9m-cC6"/>
@@ -1114,7 +1141,6 @@
                         <outlet property="callQualityView" destination="E4Q-3d-mCu" id="eu9-hU-j6f"/>
                         <outlet property="dialNumberField" destination="Asy-Da-RYm" id="K5K-xE-EXb"/>
                         <outlet property="dialPad" destination="qcT-oQ-yDo" id="YsF-iR-RIo"/>
-                        <outlet property="framerateControl" destination="M0v-0t-bcc" id="CTo-5a-s2B"/>
                         <outlet property="holdCallButton" destination="oIM-q2-mR9" id="cQ2-tz-xvc"/>
                         <outlet property="muteButton" destination="soq-uE-mHP" id="KRq-bq-ghL"/>
                         <outlet property="remoteVideoView" destination="x3i-Un-6jj" id="WZq-Ua-EJW"/>
