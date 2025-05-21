@@ -928,13 +928,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pAf-cA-xK5">
                                                 <rect key="frame" x="0.0" y="156" width="337" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="PiP View Selector" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNc-t0-oiK" userLabel="pipSelectorLabel">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PiP View Selector" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNc-t0-oiK" userLabel="pipSelectorLabel">
                                                         <rect key="frame" x="0.0" y="0.0" width="139.5" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M0v-0t-bcc" userLabel="pipSelectorOptions">
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M0v-0t-bcc" userLabel="pipSelectorOptions">
                                                         <rect key="frame" x="155.5" y="0.0" width="181.5" height="32"/>
                                                         <color key="backgroundColor" cyan="0.69999999999999996" magenta="0.0" yellow="0.20000000000000001" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                                         <segments>
@@ -1048,9 +1048,8 @@
                                             <action selector="pressEndCall:" destination="vCt-OS-GwL" eventType="touchUpInside" id="BrV-co-YwT"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7e-Nj-k12">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7e-Nj-k12">
                                         <rect key="frame" x="266" y="6" width="49" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="PiP"/>
                                         <connections>
@@ -1063,20 +1062,24 @@
                                     <constraint firstItem="soq-uE-mHP" firstAttribute="top" secondItem="mde-TG-xzJ" secondAttribute="top" constant="4" id="426-d6-yWK"/>
                                     <constraint firstItem="xTM-st-NNQ" firstAttribute="top" secondItem="mde-TG-xzJ" secondAttribute="top" constant="8" id="AD3-cy-Dqn"/>
                                     <constraint firstItem="oIM-q2-mR9" firstAttribute="top" secondItem="mde-TG-xzJ" secondAttribute="top" constant="8" id="Aeq-6m-cop"/>
+                                    <constraint firstAttribute="trailing" secondItem="H7e-Nj-k12" secondAttribute="trailing" constant="60" id="Do1-xE-MBK"/>
                                     <constraint firstAttribute="height" constant="47" id="EGE-8x-XeS"/>
                                     <constraint firstAttribute="bottom" secondItem="soq-uE-mHP" secondAttribute="bottom" constant="4" id="J4W-3d-Geb"/>
                                     <constraint firstItem="zfl-8e-OPv" firstAttribute="top" secondItem="mde-TG-xzJ" secondAttribute="top" constant="4" id="Ldu-h9-nue"/>
                                     <constraint firstAttribute="trailing" secondItem="oIM-q2-mR9" secondAttribute="trailing" constant="16" id="NVI-J0-WeI"/>
                                     <constraint firstItem="NKo-3T-v5i" firstAttribute="top" secondItem="mde-TG-xzJ" secondAttribute="top" constant="4" id="RUz-vK-iia"/>
+                                    <constraint firstAttribute="bottom" secondItem="H7e-Nj-k12" secondAttribute="bottom" constant="6" id="Uab-Ay-Fre"/>
                                     <constraint firstAttribute="bottom" secondItem="NKo-3T-v5i" secondAttribute="bottom" constant="4" id="Yfe-RX-eVa"/>
                                     <constraint firstItem="xTM-st-NNQ" firstAttribute="leading" secondItem="mde-TG-xzJ" secondAttribute="leading" constant="16" id="a5E-5X-dx7"/>
                                     <constraint firstItem="soq-uE-mHP" firstAttribute="leading" secondItem="zfl-8e-OPv" secondAttribute="trailing" constant="20" id="e9n-2p-Iq1"/>
                                     <constraint firstAttribute="bottom" secondItem="xTM-st-NNQ" secondAttribute="bottom" constant="8" id="fmS-bt-tpv"/>
+                                    <constraint firstItem="H7e-Nj-k12" firstAttribute="leading" secondItem="NKo-3T-v5i" secondAttribute="trailing" id="iMh-A7-zWe"/>
                                     <constraint firstItem="soq-uE-mHP" firstAttribute="centerY" secondItem="mde-TG-xzJ" secondAttribute="centerY" id="nsi-oc-nAu"/>
                                     <constraint firstAttribute="bottom" secondItem="zfl-8e-OPv" secondAttribute="bottom" constant="4" id="oP8-zk-XgU"/>
                                     <constraint firstItem="oIM-q2-mR9" firstAttribute="leading" secondItem="NKo-3T-v5i" secondAttribute="trailing" constant="8" id="oSB-MS-9oG"/>
                                     <constraint firstItem="NKo-3T-v5i" firstAttribute="leading" secondItem="soq-uE-mHP" secondAttribute="trailing" constant="20" id="pT2-r7-53M"/>
                                     <constraint firstAttribute="bottom" secondItem="oIM-q2-mR9" secondAttribute="bottom" constant="8" id="reH-TY-ddZ"/>
+                                    <constraint firstItem="H7e-Nj-k12" firstAttribute="top" secondItem="mde-TG-xzJ" secondAttribute="top" constant="6" id="vqe-zi-xSv"/>
                                     <constraint firstItem="soq-uE-mHP" firstAttribute="centerX" secondItem="mde-TG-xzJ" secondAttribute="centerX" id="wLJ-Og-ngq"/>
                                     <constraint firstItem="zfl-8e-OPv" firstAttribute="leading" secondItem="xTM-st-NNQ" secondAttribute="trailing" constant="8" id="x2X-4L-SQV"/>
                                 </constraints>

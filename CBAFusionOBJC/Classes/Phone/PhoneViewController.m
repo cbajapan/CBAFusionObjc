@@ -32,7 +32,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
     UIView *previewView;
     UIView *remoteView;
     UILabel *callIDLabel;
-
+    
 }
 
 @synthesize uc;
@@ -50,6 +50,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
     [self.settingsView setHidden:true];
     self.isPipActive = NO;
     [self.uc.phone setDelegate:self];
+    
     //IF YOU DO NOT START THE AUDIO SESSION YOU CANNOT USE THE MANAGER PROPERLY!
     [self.uc.phone.audioDeviceManager start];
     [self requestMicrophoneAndCameraPermissionFromAppSettings];
@@ -67,10 +68,10 @@ static NSString *const RINGTONE_FILE = @"ringring";
 
 - (void)appMovedToForeground
 {
-//    if(_call !=NULL) [_call resumeWithCompletionHandler:^{
-//        NSLog(@"foreground");
-//        
-//    }];
+    //    if(_call !=NULL) [_call resumeWithCompletionHandler:^{
+    //        NSLog(@"foreground");
+    //
+    //    }];
 }
 
 
@@ -78,9 +79,9 @@ static NSString *const RINGTONE_FILE = @"ringring";
     NSLog(@"**** willResignActive");
     if (self.call != nil) {
         NSLog(@"**** willResignActive has call");
-//        [self.call holdWithCompletionHandler:^{
-//            NSLog(@"**** willResignActive completion");
-//        }];
+        //        [self.call holdWithCompletionHandler:^{
+        //            NSLog(@"**** willResignActive completion");
+        //        }];
     }
 }
 
@@ -180,30 +181,30 @@ static NSString *const RINGTONE_FILE = @"ringring";
 #pragma mark - quality
 
 - (void) configureResolutionOptions {
-//    __block BOOL showResolutionChoice720 = false;
-//    __block BOOL showResolutionChoice480 = false;
-//    typeof(self) __weak weakSelf = self;
+    //    __block BOOL showResolutionChoice720 = false;
+    //    __block BOOL showResolutionChoice480 = false;
+    //    typeof(self) __weak weakSelf = self;
     [self->uc.phone setPreferredCaptureResolution:ACBVideoCaptureResolution640x480];
     [self->uc.phone setPreferredCaptureFrameRate: 30];
-//    [self->uc.phone recommendedCaptureSettingsWithCompletionHandler:^(NSArray<ACBVideoCaptureSetting*>* recCaptureSettings) {
-//        for(ACBVideoCaptureSetting* captureSetting in recCaptureSettings) {
-//            if(captureSetting.resolution == ACBVideoCaptureResolution1280x720) {
-//                showResolutionChoice720 = true;
-//                showResolutionChoice480 = true;
-//            } else if(captureSetting.resolution == ACBVideoCaptureResolution640x480) {
-//                showResolutionChoice480 = true;
-//            }
-//        } if(!showResolutionChoice720) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [weakSelf.resolutionControl setEnabled:false forSegmentAtIndex:3];
-//            });
-//            
-//        } if(!showResolutionChoice480) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//            [weakSelf.resolutionControl setEnabled:false forSegmentAtIndex:2];
-//            });
-//        }
-//    }];
+    //    [self->uc.phone recommendedCaptureSettingsWithCompletionHandler:^(NSArray<ACBVideoCaptureSetting*>* recCaptureSettings) {
+    //        for(ACBVideoCaptureSetting* captureSetting in recCaptureSettings) {
+    //            if(captureSetting.resolution == ACBVideoCaptureResolution1280x720) {
+    //                showResolutionChoice720 = true;
+    //                showResolutionChoice480 = true;
+    //            } else if(captureSetting.resolution == ACBVideoCaptureResolution640x480) {
+    //                showResolutionChoice480 = true;
+    //            }
+    //        } if(!showResolutionChoice720) {
+    //            dispatch_async(dispatch_get_main_queue(), ^{
+    //                [weakSelf.resolutionControl setEnabled:false forSegmentAtIndex:3];
+    //            });
+    //
+    //        } if(!showResolutionChoice480) {
+    //            dispatch_async(dispatch_get_main_queue(), ^{
+    //            [weakSelf.resolutionControl setEnabled:false forSegmentAtIndex:2];
+    //            });
+    //        }
+    //    }];
     
 }
 
@@ -258,10 +259,10 @@ static NSString *const RINGTONE_FILE = @"ringring";
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self.isHeld = true;
                         [self.holdCallButton setTitle:@"Unhold" forState:UIControlStateNormal];
-                                                if (@available(iOS 15, *)) {} else {
-                        [self.remoteVideoView setHidden:true];
-                        [self.call.remoteView setHidden: true];
-                                                }
+                        if (@available(iOS 15, *)) {} else {
+                            [self.remoteVideoView setHidden:true];
+                            [self.call.remoteView setHidden: true];
+                        }
                     });
                 }];
                 
@@ -270,10 +271,10 @@ static NSString *const RINGTONE_FILE = @"ringring";
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self.isHeld = false;
                         [self.holdCallButton setTitle:@"Hold" forState:UIControlStateNormal];
-                                                if (@available(iOS 15, *)) {} else {
-                        [self.remoteVideoView setHidden:false];
-                        [self.call.remoteView setHidden: false];
-                                                }
+                        if (@available(iOS 15, *)) {} else {
+                            [self.remoteVideoView setHidden:false];
+                            [self.call.remoteView setHidden: false];
+                        }
                     });
                 }];
             }
@@ -302,6 +303,8 @@ static NSString *const RINGTONE_FILE = @"ringring";
                 [self switchToNotInCallUI];
                 if (@available(iOS 15, *)) {
                     [self removeBufferViews];
+                    self->remoteView = nil;
+                    self->previewView = nil;
                 } else {
                     [self->previewView removeFromSuperview];
                     [self->remoteView removeFromSuperview];
@@ -401,7 +404,7 @@ static NSString *const RINGTONE_FILE = @"ringring";
 - (IBAction)pipTapped:(UIButton *)sender {
     self.isPipActive = !self.isPipActive;
     [self showPipVideoCallController:_isPipActive];
-//    [self showPipContentSource:_isPipActive];
+    //    [self showPipContentSource:_isPipActive];
 }
 
 - (IBAction)pipSelectorOptions:(UISegmentedControl *)sender {
@@ -986,10 +989,10 @@ static NSString *const RINGTONE_FILE = @"ringring";
             [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
                 if (settings.badgeSetting == UNNotificationSettingEnabled) {
                     // Increment the badge count
-
+                    
                     NSInteger newBadgeCount = [self getCurrentBadgeCount] + 1; // Increment the badge count
                     [self setBadgeCount:newBadgeCount];
-
+                    
                     // Get the current badge count
                     NSInteger currentBadgeCount = [self getCurrentBadgeCount];
                     if (@available(iOS 16.0, *)) {
@@ -1066,107 +1069,110 @@ static NSString *const RINGTONE_FILE = @"ringring";
 }
 
 #pragma mark - PiP
-     
-     - (void)showPipVideoCallController:(BOOL)show {
-        if (![AVPictureInPictureController isPictureInPictureSupported]) {
-            NSLog(@"PIP not Supported");
-            return;
+
+- (void)showPipVideoCallController:(BOOL)show {
+    if (![AVPictureInPictureController isPictureInPictureSupported]) {
+        NSLog(@"PIP not Supported");
+        return;
+    }
+    
+    if (self.pipController) {
+        [self.pipController stopPictureInPicture];
+        self.pipController.delegate = nil;
+        self.pipController = nil;
+    }
+    
+    NSString *pipViewSelected = [[NSUserDefaults standardUserDefaults] objectForKey:@"PIPViewSelected"];
+    
+    if (@available(iOS 15.0, *)) {
+        CGSize size = [self determineSizeForOrientation:UIDevice.currentDevice.orientation minimize:NO];
+        
+        UIView *pipView;
+        NSLog(@"SELECETED %@", pipViewSelected);
+        if ([pipViewSelected isEqualToString:@"local"]) {
+            pipView = self->previewView;
+        } else {
+            pipView = self->remoteView;
         }
         
-         if (!show) {
-             [self.pipController stopPictureInPicture];
-             self.pipController.delegate = self;
-             return;
-         }
+        // Initialize the Picture in Picture Video Call View Controller
+        AVPictureInPictureVideoCallViewController *pipVideoCallViewController =
+        [[AVPictureInPictureVideoCallViewController alloc] initWithPipView:pipView preferredContentSize:size];
+        
+        // Create the content source for the PIP controller
+        AVPictureInPictureControllerContentSource *contentSource =
+        [[AVPictureInPictureControllerContentSource alloc] initWithActiveVideoCallSourceView:self.view contentViewController:pipVideoCallViewController];
+        
+        // Initialize the PIP controller
+        AVPictureInPictureController *pipController = [[AVPictureInPictureController alloc] initWithContentSource:contentSource];
+        
+        // Use a weak reference to self to avoid retain cycles
+        __weak typeof(self) weakSelf = self;
+        
+        // Set the PIP controller and start PIP
+        [self.call setPipController:pipController completionHandler:^{
+            NSLog(@"Set PIP");
 
-         NSString *pipViewSelected = [[NSUserDefaults standardUserDefaults] objectForKey:@"PIPViewSelected"];
-         
-         if (@available(iOS 15.0, *)) {
-             CGSize size = [self determineSizeForOrientation:UIDevice.currentDevice.orientation minimize:NO];
-             
-             UIView *pipView;
-             NSLog(@"SELECETED %@", pipViewSelected);
-             if ([pipViewSelected isEqualToString:@"local"]) {
-                 pipView = self->previewView;
-             } else {
-                 pipView = self->remoteView;
-             }
-             
-             // Initialize the Picture in Picture Video Call View Controller
-             AVPictureInPictureVideoCallViewController *pipVideoCallViewController =
-                 [[AVPictureInPictureVideoCallViewController alloc] initWithPipView:pipView preferredContentSize:size];
-             
-             // Create the content source for the PIP controller
-             AVPictureInPictureControllerContentSource *contentSource =
-                 [[AVPictureInPictureControllerContentSource alloc] initWithActiveVideoCallSourceView:self.view contentViewController:pipVideoCallViewController];
-             
-             // Initialize the PIP controller
-             AVPictureInPictureController *pipController = [[AVPictureInPictureController alloc] initWithContentSource:contentSource];
-             
-             // Use a weak reference to self to avoid retain cycles
-             __weak typeof(self) weakSelf = self;
-             
-             // Set the PIP controller and start PIP
-             [self.call setPipController:self->_pipController completionHandler:^{
-                 NSLog(@"Set PIP");
-                 pipController.delegate = weakSelf;
-                 pipController.canStartPictureInPictureAutomaticallyFromInline = YES;
-                 [pipController startPictureInPicture];
-                 weakSelf.pipController = pipController;
-             }];
-         }
-     }
+            // Assign pipController to self BEFORE starting PiP
+            weakSelf.pipController = pipController;
+            pipController.delegate = weakSelf;
+            pipController.canStartPictureInPictureAutomaticallyFromInline = YES;
 
-     
-     - (void)showPipContentSource:(BOOL)show {
-         // Check if Picture-in-Picture is supported
-         if (![AVPictureInPictureController isPictureInPictureSupported]) {
-             NSLog(@"PIP not Supported");
-             return;
-         }
-         
-         if (@available(iOS 15.0, *)) {
-             // Handle showing or stopping PiP
-             if (show) {
-                 AVSampleBufferDisplayLayer *sampleBufferLayer = remoteView.sampleBufferLayer;
-                 if (!sampleBufferLayer) return;
+            [pipController startPictureInPicture];
+        }];
+    }
+}
 
-                 // Ensure that we are on the main thread
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     // Create the content source for PiP
-                     AVPictureInPictureControllerContentSource *source = [[AVPictureInPictureControllerContentSource alloc] initWithSampleBufferDisplayLayer:sampleBufferLayer playbackDelegate:self];
-                     
-                     // Initialize the PiP controller if it doesn't exist
-                     if (!self.pipController) {
-                         self.pipController = [[AVPictureInPictureController alloc] initWithContentSource:source];
-                         self.pipController.canStartPictureInPictureAutomaticallyFromInline = YES;
-                     } else {
-                         // If PiP is already active, stop it before reusing the controller
-                         if (self.pipController.isPictureInPictureActive) {
-                             [self.pipController stopPictureInPicture];
-                         }
-                         // Update the content source if reusing the controller
-                         [self.pipController setContentSource:source];
-                     }
 
-                     // Set the PiP controller in your call object
-                     __weak typeof(self) weakSelf = self;
-                     [self->_call setPipController:self.pipController completionHandler:^{
-                         __strong typeof(weakSelf) strongSelf = weakSelf;
-                         if (strongSelf) {
-                             NSLog(@"PiP controller set successfully. %@", strongSelf.pipController.delegate);
-                             [strongSelf.pipController startPictureInPicture];
-                         }
-                     }];
-                 });
-             } else {
-                 // Stop Picture in Picture if not showing
-                 if (self.pipController.isPictureInPictureActive) {
-                     [self.pipController stopPictureInPicture];
-                 }
-             }
-         }
-     }
+- (void)showPipContentSource:(BOOL)show {
+    // Check if Picture-in-Picture is supported
+    if (![AVPictureInPictureController isPictureInPictureSupported]) {
+        NSLog(@"PIP not Supported");
+        return;
+    }
+    
+    if (@available(iOS 15.0, *)) {
+        // Handle showing or stopping PiP
+        if (show) {
+            AVSampleBufferDisplayLayer *sampleBufferLayer = remoteView.sampleBufferLayer;
+            if (!sampleBufferLayer) return;
+            
+            // Ensure that we are on the main thread
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Create the content source for PiP
+                AVPictureInPictureControllerContentSource *source = [[AVPictureInPictureControllerContentSource alloc] initWithSampleBufferDisplayLayer:sampleBufferLayer playbackDelegate:self];
+                
+                // Initialize the PiP controller if it doesn't exist
+                if (!self.pipController) {
+                    self.pipController = [[AVPictureInPictureController alloc] initWithContentSource:source];
+                    self.pipController.canStartPictureInPictureAutomaticallyFromInline = YES;
+                } else {
+                    // If PiP is already active, stop it before reusing the controller
+                    if (self.pipController.isPictureInPictureActive) {
+                        [self.pipController stopPictureInPicture];
+                    }
+                    // Update the content source if reusing the controller
+                    [self.pipController setContentSource:source];
+                }
+                
+                // Set the PiP controller in your call object
+                __weak typeof(self) weakSelf = self;
+                [self->_call setPipController:self.pipController completionHandler:^{
+                    __strong typeof(weakSelf) strongSelf = weakSelf;
+                    if (strongSelf) {
+                        NSLog(@"PiP controller set successfully. %@", strongSelf.pipController.delegate);
+                        [strongSelf.pipController startPictureInPicture];
+                    }
+                }];
+            });
+        } else {
+            // Stop Picture in Picture if not showing
+            if (self.pipController.isPictureInPictureActive) {
+                [self.pipController stopPictureInPicture];
+            }
+        }
+    }
+}
 
 
 
@@ -1279,19 +1285,18 @@ static NSString *const RINGTONE_FILE = @"ringring";
 
 
 - (CMTimeRange)pictureInPictureControllerTimeRangeForPlayback:(nonnull AVPictureInPictureController *)pictureInPictureController {
-    // Define the start time and duration for the time range
-    CMTime startTime = CMTimeMakeWithSeconds(0.0, 600); // Start at 0 seconds, with a timescale of 600
-    CMTime duration = CMTimeMakeWithSeconds(60.0, 600); // Duration of 60 seconds
-    
-    // Create the time range
-    CMTimeRange timeRange = CMTimeRangeMake(startTime, duration);
-    
-    return timeRange;
+    CMTimeRange timeRange = CMTimeRangeMake(kCMTimeZero, CMTimeMakeWithSeconds(CMTimeGetSeconds(CMTimeMake(1, 1)) * DBL_MAX, 1));
+    return  timeRange;
 }
 
-
 -(void) pictureInPictureControllerWillStopPictureInPicture:(AVPictureInPictureController *)pictureInPictureController {
-    
+    NSLog(@"WILL STOP PIP");
+    [self.pipController stopPictureInPicture];
+    self.pipController.delegate = self;
+}
+
+-(void) pictureInPictureControllerDidStopPictureInPicture:(AVPictureInPictureController *)pictureInPictureController {
+    NSLog(@"DID STOP PIP");
     [self.view addSubview:self->remoteView];
     
     [self->remoteView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;

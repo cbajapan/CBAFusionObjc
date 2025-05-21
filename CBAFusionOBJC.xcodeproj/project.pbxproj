@@ -11,6 +11,11 @@
 		090879B32B9F1C9F00E2B831 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 090879B22B9F1C9F00E2B831 /* FCSDKiOS */; };
 		091342652C7D6A3F00EA5DE2 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 091342642C7D6A3F00EA5DE2 /* FCSDKiOS */; };
 		094051462C604E0D00C111E7 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 094051452C604E0D00C111E7 /* FCSDKiOS */; };
+		09405D2A2DDD524900D4FAF2 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09405D292DDD524900D4FAF2 /* FCSDKiOS */; };
+		09405D2C2DDD56C700D4FAF2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09405D2B2DDD56C700D4FAF2 /* SceneDelegate.m */; };
+		09405D542DDD69A300D4FAF2 /* Lexia_Rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09F853602A1C828D00651724 /* Lexia_Rg.ttf */; };
+		09405D552DDD69A300D4FAF2 /* Lexia_Lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09F853612A1C829400651724 /* Lexia_Lt.ttf */; };
+		09405D562DDD69A300D4FAF2 /* Lexia_Bd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09F853622A1C829D00651724 /* Lexia_Bd.ttf */; };
 		094582892BF19A5A005F9CCA /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 094582882BF19A5A005F9CCA /* FCSDKiOS */; };
 		094A183A2B1F44A400AF32ED /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 094A18392B1F44A400AF32ED /* FCSDKiOS */; };
 		09565C932C6B17980065469B /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09565C922C6B17980065469B /* FCSDKiOS */; };
@@ -18,23 +23,23 @@
 		095736B42934C15000E89194 /* NetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 095736B32934C15000E89194 /* NetworkMonitor.m */; };
 		0969F90E26AA50870001E08E /* Simulator.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0969F90D26AA50870001E08E /* Simulator.mp4 */; };
 		0982BB972C5073B000F21088 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 0982BB962C5073B000F21088 /* FCSDKiOS */; };
+		099DE9682DB93AEF005792CC /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 099DE9672DB93AEF005792CC /* FCSDKiOS */; };
 		09AE979A2C9D3C7D00037B09 /* AVPictureInPictureVideoCallViewController+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AE97992C9D3C7A00037B09 /* AVPictureInPictureVideoCallViewController+Convenience.m */; };
 		09D2C1AB2BB6F6C9005E005B /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09D2C1AA2BB6F6C9005E005B /* FCSDKiOS */; };
 		09D3105D2D6C025900BFE4D2 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09D3105C2D6C025900BFE4D2 /* FCSDKiOS */; };
-		09D3108F2D71EA6300BFE4D2 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09D3108E2D71EA6300BFE4D2 /* FCSDKiOS */; };
 		09E0015D2C17C3C400ABF2FD /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E0015C2C17C3C400ABF2FD /* FCSDKiOS */; };
 		09E1036B2C44B38300CB16D5 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E1036A2C44B38300CB16D5 /* FCSDKiOS */; };
 		09E55CD82BA30E3E006C35D1 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E55CD72BA30E3E006C35D1 /* FCSDKiOS */; };
 		09E55CDF2BA31324006C35D1 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E55CDE2BA31324006C35D1 /* FCSDKiOS */; };
 		09E55CE52BA3194F006C35D1 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E55CE42BA3194F006C35D1 /* FCSDKiOS */; };
 		09E55CF12BA5A0A6006C35D1 /* FCSDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E55CF02BA5A0A6006C35D1 /* FCSDKiOS */; };
-		09F853552A1C81EE00651724 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F853542A1C81EE00651724 /* Main.storyboard */; };
+		09F853552A1C81EE00651724 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F853542A1C81EE00651724 /* LaunchScreen.storyboard */; };
 		09F853572A1C81FE00651724 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F853562A1C81FE00651724 /* Default-568h@2x.png */; };
 		09F853592A1C820600651724 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F853582A1C820600651724 /* Media.xcassets */; };
 		09F8535D2A1C821800651724 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F8535C2A1C821800651724 /* main.m */; };
 		09F8535F2A1C826800651724 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 09F8535E2A1C826800651724 /* Settings.bundle */; };
 		09F853672A1C860300651724 /* ringring.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09F853662A1C860300651724 /* ringring.wav */; };
-		09F8536C2A1C879800651724 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F8536A2A1C879800651724 /* MainStoryboard_iPhone.storyboard */; };
+		09F8536C2A1C879800651724 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F8536A2A1C879800651724 /* Main.storyboard */; };
 		1E730E4C16C55F2300ABE50E /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E730E3216C55F2300ABE50E /* AccountViewController.m */; };
 		1E730E4F16C55F2300ABE50E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E730E3916C55F2300ABE50E /* AppDelegate.m */; };
 		1E730E5016C55F2300ABE50E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E730E3C16C55F2300ABE50E /* LoginViewController.m */; };
@@ -60,6 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09405D2B2DDD56C700D4FAF2 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		09405D2D2DDD56CD00D4FAF2 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		095736AE2934AD8E00E89194 /* AuthenticationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthenticationService.m; sourceTree = "<group>"; };
 		095736B02934AD9C00E89194 /* AuthenticationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthenticationService.h; sourceTree = "<group>"; };
 		095736B32934C15000E89194 /* NetworkMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkMonitor.m; sourceTree = "<group>"; };
@@ -67,7 +74,7 @@
 		0969F90D26AA50870001E08E /* Simulator.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Simulator.mp4; sourceTree = "<group>"; };
 		09AE97982C9D3C4C00037B09 /* AVPictureInPictureVideoCallViewController+Convenience.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVPictureInPictureVideoCallViewController+Convenience.h"; sourceTree = "<group>"; };
 		09AE97992C9D3C7A00037B09 /* AVPictureInPictureVideoCallViewController+Convenience.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVPictureInPictureVideoCallViewController+Convenience.m"; sourceTree = "<group>"; };
-		09F853542A1C81EE00651724 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = CBAFusionOBJC/Main.storyboard; sourceTree = "<group>"; };
+		09F853542A1C81EE00651724 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = CBAFusionOBJC/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09F853562A1C81FE00651724 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "CBAFusionOBJC/Default-568h@2x.png"; sourceTree = "<group>"; };
 		09F853582A1C820600651724 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = CBAFusionOBJC/Media.xcassets; sourceTree = "<group>"; };
 		09F8535A2A1C821100651724 /* CBAFusionOBJC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "CBAFusionOBJC-Info.plist"; path = "CBAFusionOBJC/CBAFusionOBJC-Info.plist"; sourceTree = "<group>"; };
@@ -77,7 +84,7 @@
 		09F853612A1C829400651724 /* Lexia_Lt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Lexia_Lt.ttf; path = CBAFusionOBJC/Media.xcassets/Fonts/Lexia_Lt.dataset/Lexia_Lt.ttf; sourceTree = "<group>"; };
 		09F853622A1C829D00651724 /* Lexia_Bd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Lexia_Bd.ttf; path = CBAFusionOBJC/Media.xcassets/Fonts/Lexia_Bd.dataset/Lexia_Bd.ttf; sourceTree = "<group>"; };
 		09F853662A1C860300651724 /* ringring.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ringring.wav; path = CBAFusionOBJC/ringring.wav; sourceTree = "<group>"; };
-		09F8536B2A1C879800651724 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		09F8536B2A1C879800651724 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		1E730E3116C55F2300ABE50E /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		1E730E3216C55F2300ABE50E /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		1E730E3816C55F2300ABE50E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,7 +115,8 @@
 				090879B32B9F1C9F00E2B831 /* FCSDKiOS in Frameworks */,
 				090300452D40EA9600B8624A /* FCSDKiOS in Frameworks */,
 				09E55CE52BA3194F006C35D1 /* FCSDKiOS in Frameworks */,
-				09D3108F2D71EA6300BFE4D2 /* FCSDKiOS in Frameworks */,
+				099DE9682DB93AEF005792CC /* FCSDKiOS in Frameworks */,
+				09405D2A2DDD524900D4FAF2 /* FCSDKiOS in Frameworks */,
 				09E55CD82BA30E3E006C35D1 /* FCSDKiOS in Frameworks */,
 				09E55CDF2BA31324006C35D1 /* FCSDKiOS in Frameworks */,
 				091342652C7D6A3F00EA5DE2 /* FCSDKiOS in Frameworks */,
@@ -166,7 +174,7 @@
 		09F853692A1C879800651724 /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				09F8536A2A1C879800651724 /* MainStoryboard_iPhone.storyboard */,
+				09F8536A2A1C879800651724 /* Main.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -174,6 +182,8 @@
 		1E730E2F16C55F2300ABE50E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				09405D2D2DDD56CD00D4FAF2 /* SceneDelegate.h */,
+				09405D2B2DDD56C700D4FAF2 /* SceneDelegate.m */,
 				095736AD2934AD6C00E89194 /* View Model */,
 				843900C51E5C5C1F00A7208D /* AED */,
 				843900C41E5C5C0600A7208D /* Phone */,
@@ -247,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				09F853562A1C81FE00651724 /* Default-568h@2x.png */,
-				09F853542A1C81EE00651724 /* Main.storyboard */,
+				09F853542A1C81EE00651724 /* LaunchScreen.storyboard */,
 				54F5AEDF16A76AD7008B1505 /* Supporting Files */,
 			);
 			name = sample;
@@ -337,7 +347,8 @@
 				091342642C7D6A3F00EA5DE2 /* FCSDKiOS */,
 				090300442D40EA9600B8624A /* FCSDKiOS */,
 				09D3105C2D6C025900BFE4D2 /* FCSDKiOS */,
-				09D3108E2D71EA6300BFE4D2 /* FCSDKiOS */,
+				099DE9672DB93AEF005792CC /* FCSDKiOS */,
+				09405D292DDD524900D4FAF2 /* FCSDKiOS */,
 			);
 			productName = ImPresenceSample;
 			productReference = 54F5AED416A76AD7008B1505 /* CBAFusionOBJC.app */;
@@ -364,7 +375,7 @@
 			);
 			mainGroup = 54F5AEC916A76AD7008B1505;
 			packageReferences = (
-				09D3108D2D71EA6300BFE4D2 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */,
+				09405D282DDD524900D4FAF2 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */,
 			);
 			productRefGroup = 54F5AED516A76AD7008B1505 /* Products */;
 			projectDirPath = "";
@@ -380,12 +391,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09405D542DDD69A300D4FAF2 /* Lexia_Rg.ttf in Resources */,
+				09405D552DDD69A300D4FAF2 /* Lexia_Lt.ttf in Resources */,
+				09405D562DDD69A300D4FAF2 /* Lexia_Bd.ttf in Resources */,
 				09F853672A1C860300651724 /* ringring.wav in Resources */,
 				09F853592A1C820600651724 /* Media.xcassets in Resources */,
 				09F853572A1C81FE00651724 /* Default-568h@2x.png in Resources */,
 				09F8535F2A1C826800651724 /* Settings.bundle in Resources */,
-				09F853552A1C81EE00651724 /* Main.storyboard in Resources */,
-				09F8536C2A1C879800651724 /* MainStoryboard_iPhone.storyboard in Resources */,
+				09F853552A1C81EE00651724 /* LaunchScreen.storyboard in Resources */,
+				09F8536C2A1C879800651724 /* Main.storyboard in Resources */,
 				0969F90E26AA50870001E08E /* Simulator.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +414,7 @@
 				09F8535D2A1C821800651724 /* main.m in Sources */,
 				DE7CF96C1863476400EE2AE7 /* ACBVideoCaptureSetting+UI.m in Sources */,
 				1E730E4C16C55F2300ABE50E /* AccountViewController.m in Sources */,
+				09405D2C2DDD56C700D4FAF2 /* SceneDelegate.m in Sources */,
 				095736AF2934AD8E00E89194 /* AuthenticationService.m in Sources */,
 				095736B42934C15000E89194 /* NetworkMonitor.m in Sources */,
 				1E730E4F16C55F2300ABE50E /* AppDelegate.m in Sources */,
@@ -416,12 +431,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		09F8536A2A1C879800651724 /* MainStoryboard_iPhone.storyboard */ = {
+		09F8536A2A1C879800651724 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				09F8536B2A1C879800651724 /* Base */,
 			);
-			name = MainStoryboard_iPhone.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -575,11 +590,10 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 4.3.5;
+				MARKETING_VERSION = 4.3.6;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cba-japan.CBAFusionOBJC";
 				PRODUCT_NAME = CBAFusionOBJC;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -627,11 +641,10 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 4.3.5;
+				MARKETING_VERSION = 4.3.6;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cba-japan.CBAFusionOBJC";
 				PRODUCT_NAME = CBAFusionOBJC;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -668,12 +681,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		09D3108D2D71EA6300BFE4D2 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */ = {
+		09405D282DDD524900D4FAF2 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/cbajapan/swift-fcsdk-ios.git";
 			requirement = {
 				kind = exactVersion;
-				version = 4.3.5;
+				version = "4.3.6-beta1";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -695,6 +708,11 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = FCSDKiOS;
 		};
+		09405D292DDD524900D4FAF2 /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09405D282DDD524900D4FAF2 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */;
+			productName = FCSDKiOS;
+		};
 		094582882BF19A5A005F9CCA /* FCSDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FCSDKiOS;
@@ -711,17 +729,16 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = FCSDKiOS;
 		};
+		099DE9672DB93AEF005792CC /* FCSDKiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FCSDKiOS;
+		};
 		09D2C1AA2BB6F6C9005E005B /* FCSDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FCSDKiOS;
 		};
 		09D3105C2D6C025900BFE4D2 /* FCSDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = FCSDKiOS;
-		};
-		09D3108E2D71EA6300BFE4D2 /* FCSDKiOS */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 09D3108D2D71EA6300BFE4D2 /* XCRemoteSwiftPackageReference "swift-fcsdk-ios" */;
 			productName = FCSDKiOS;
 		};
 		09E0015C2C17C3C400ABF2FD /* FCSDKiOS */ = {
